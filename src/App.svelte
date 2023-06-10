@@ -1,10 +1,11 @@
 <script>
   import Button from "./lib/components/Button.svelte";
+  import ToggleSwitch from "./lib/components/ToggleSwitch.svelte";
 </script>
 
 <main>
   <section>
-    <Button>Get in touch</Button>
+    <ToggleSwitch />
   </section>
 </main>
 
