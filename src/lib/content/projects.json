@@ -1,0 +1,38 @@
+[
+  {
+    "id": "project1",
+    "title": "Project 1",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ullamcorper sit amet risus nullam eget felis eget nunc. Dictum fusce ut placerat orci nulla pellentesque dignissim enim sit.  A iaculis at erat pellentesque. Diam in arcu cursus euismod quis.",
+    "thumbnail": "https://images.unsplash.com/photo-1481349518771-20055b2a7b24?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cmFuZG9tfGVufDB8fDB8fHww&w=1000&q=80",
+    "imageDesktop": "https://images.unsplash.com/photo-1481349518771-20055b2a7b24?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cmFuZG9tfGVufDB8fDB8fHww&w=1000&q=80",
+    "imageMobile": "https://plus.unsplash.com/premium_photo-1686090450574-214118216bdc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80",
+    "websiteLink": "https://www.example.com/project1"
+  },
+  {
+    "id": "project2",
+    "title": "Project 2",
+    "description": "Eget mauris pharetra et ultrices neque ornare aenean euismod elementum. Magnis dis parturient montes nascetur. Vulputate enim nulla aliquet porttitor. is convallis tellus id interdum. Volutpat lacus laoreet non curabitur gravida. Imperdiet massa tincidunt nunc pulvinar sapien et ligula ullamcorper malesuada.",
+    "thumbnail": "https://repository-images.githubusercontent.com/260096455/47f1b200-8b2e-11ea-8fa1-ab106189aeb0",
+    "imageDesktop": "https://repository-images.githubusercontent.com/260096455/47f1b200-8b2e-11ea-8fa1-ab106189aeb0",
+    "imageMobile": "https://images.unsplash.com/photo-1685908949700-fd1f886fec7a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=776&q=80",
+    "websiteLink": "https://www.example.com/project2"
+  },
+  {
+    "id": "project3",
+    "title": "Project 3",
+    "description": "Vestibulum mattis ullamcorper velit sed ullamcorper morbi tincidunt ornare massa. Turpis massa sed elementum tempus egestas sed sed. A diam maecenas sed enim ut sem viverra aliquet eget. Mauris augue neque gravida in. Eget nulla facilisi etiam dignissim diam quis enim lobortis. ",
+    "thumbnail": "https://i.pinimg.com/736x/5d/96/1c/5d961c42020ff26442ad04cb808157af.jpg",
+    "imageDesktop": "https://i.pinimg.com/736x/5d/96/1c/5d961c42020ff26442ad04cb808157af.jpg",
+    "imageMobile": "https://cdn.wallpapersafari.com/82/1/t1LuCT.jpg",
+    "websiteLink": "https://www.example.com/project3"
+  },
+  {
+    "id": "project4",
+    "title": "Project 4",
+    "description": "Mauris ultrices eros in cursus turpis massa tincidunt dui. Convallis a cras semper auctor neque. Mauris pellentesque pulvinar pellentesque habitant morbi tristique senectus. Eget est lorem ipsum dolor sit amet consectetur. Sed arcu non odio euismod lacinia. Nulla porttitor ",
+    "thumbnail": "https://assets-prd.ignimgs.com/2021/09/14/lostinrandom-blogroll-01-1631659942612.jpg",
+    "imageDesktop": "https://assets-prd.ignimgs.com/2021/09/14/lostinrandom-blogroll-01-1631659942612.jpg",
+    "imageMobile": "https://images.unsplash.com/photo-1662010021854-e67c538ea7a9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=704&q=80",
+    "websiteLink": "https://www.example.com/project4"
+  }
+]
