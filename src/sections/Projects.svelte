@@ -165,6 +165,8 @@
     gap: 1rem;
     margin: 4rem 1rem;
     position: relative;
+    isolation: isolate;
+
     & li {
       aspect-ratio: 16 / 9;
       flex: 1;
