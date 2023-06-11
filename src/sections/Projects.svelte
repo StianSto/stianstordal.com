@@ -3,6 +3,7 @@
   import sliderIndicator from "../assets/sliderIndicator.svg";
   import { onMount } from "svelte";
   import projectsJSON from "../lib/content/projects.json";
+  import SliderIndicator from "../lib/components/SliderIndicator.svelte";
 
   let activeProject = projectsJSON[0];
 
@@ -18,7 +19,9 @@
       (project) => project.id === clickedItem.dataset.project
     );
 
+    // execute slide indicator and slide indicator on window resize
     slideIndicator(projectsSlider, clickedItem);
+    window.onresize = () => slideIndicator(projectsSlider, clickedItem);
   }
 
   function slideIndicator(parent, child) {
@@ -28,7 +31,7 @@
 
     const indicator = document.querySelector(".indicator");
     // @ts-ignore
-    indicator.style.translate = `${slideTo}px -15%`;
+    indicator.style.translate = `${slideTo}px 0`;
   }
 
   onMount(() => {
@@ -39,7 +42,7 @@
 </script>
 
 <!-- output -->
-<section>
+<section id="myProjects">
   <div class="container">
     <h2>My Projects</h2>
 
@@ -68,7 +71,9 @@
     </div>
 
     <ul id="projectsSlider">
-      <img src={sliderIndicator} alt="" class="indicator" />
+      <div class="indicator">
+        <SliderIndicator />
+      </div>
 
       {#each projectsJSON as { id, thumbnail }, index}
         <!-- svelte-ignore a11y-click-events-have-key-events -->
@@ -87,6 +92,9 @@
 <!-- output [end] -->
 
 <style lang="scss">
+  #myProjects {
+    overflow: hidden;
+  }
   h2 {
     margin-block: 4rem;
   }
@@ -94,6 +102,10 @@
   #projectContainer {
     display: flex;
     padding-inline: 2rem;
+
+    flex-direction: column;
+    @media screen and (max-width: 900px) {
+    }
   }
 
   #projectsMonitor {
@@ -198,7 +210,7 @@
       position: absolute;
       top: 0;
       left: 0;
-      height: 150%;
+      height: 100%;
       transition: translate 300ms ease-in-out;
       z-index: -1;
     }

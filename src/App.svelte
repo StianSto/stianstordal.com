@@ -65,8 +65,4 @@
 
     background: var(--background);
   }
-
-  #sectionDividerhero {
-    width: 100%;
-  }
 </style>

@@ -107,6 +107,7 @@
 <style>
   #skillset {
     min-height: 500px;
+    background-color: var(--primary);
     background: var(--gradient-primary);
     color: white;
   }
