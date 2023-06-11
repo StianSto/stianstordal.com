@@ -22,6 +22,5 @@
 
   #sectionDividerhero {
     width: 100%;
-    translate: 0 -60%;
   }
 </style>
