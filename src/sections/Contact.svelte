@@ -40,7 +40,7 @@
 <style>
   section {
     background-color: var(--charcoal);
-    color: var(--background);
+    color: var(--milkywhite);
   }
 
   .container {
