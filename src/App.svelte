@@ -3,16 +3,19 @@
   import ToggleSwitch from "./lib/components/ToggleSwitch.svelte";
   import Hero from "./sections/Hero.svelte";
   import sectionDividerHero from "./assets/section-divider-hero.svg";
+  import Projects from "./sections/Projects.svelte";
 </script>
 
 <main>
   <Hero />
   <img src={sectionDividerHero} alt="" id="sectionDividerhero" />
+  <Projects />
 </main>
 
 <style>
   main {
     margin-inline: auto;
+    margin-bottom: 10rem;
   }
 
   #sectionDividerhero {
