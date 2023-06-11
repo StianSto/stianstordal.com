@@ -5,6 +5,7 @@
   import sectionDividerHero from "./assets/section-divider-hero.svg";
   import Projects from "./sections/Projects.svelte";
   import Skillset from "./sections/Skillset.svelte";
+  import Bio from "./sections/Bio.svelte";
 </script>
 
 <main>
@@ -12,12 +13,14 @@
   <img src={sectionDividerHero} alt="" id="sectionDividerhero" />
   <Projects />
   <Skillset />
+  <Bio />
 </main>
 
 <style>
   main {
     margin-inline: auto;
-    margin-bottom: 10rem;
+    padding-bottom: 10rem;
+    background: var(--background);
   }
 
   #sectionDividerhero {
