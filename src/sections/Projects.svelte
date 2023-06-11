@@ -13,12 +13,10 @@
 
     projectItems.forEach((item) => item.classList.remove("active"));
     clickedItem.classList.add("active");
-    console.log(clickedItem.dataset.project);
 
     activeProject = projectsJSON.find(
       (project) => project.id === clickedItem.dataset.project
     );
-    console.log(activeProject);
 
     slideIndicator(projectsSlider, clickedItem);
   }
@@ -103,13 +101,14 @@
     max-width: 600px;
     position: relative;
     display: flex;
+    height: fit-content;
+    align-self: center;
 
     & > * {
       border-radius: 10px;
       background-color: white;
       box-shadow: 2px 1px 4px 2px rgba(0, 0, 0, 0.1);
       overflow: hidden;
-
       transform-style: preserve-3d;
 
       & img {
@@ -124,6 +123,7 @@
       aspect-ratio: 16 / 9;
       transform: perspective(1000px) rotate3d(0, 1, 0, 20deg);
     }
+
     &Mobile {
       height: 100%;
       aspect-ratio: 9 / 16;
@@ -135,12 +135,11 @@
   }
 
   #projectsBody {
-    flex: 3;
     padding: 2rem;
-
     display: flex;
     flex-direction: column;
     justify-content: center;
+    flex: 3;
 
     .description {
       margin-bottom: 2.5rem;
