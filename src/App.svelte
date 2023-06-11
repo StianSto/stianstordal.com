@@ -6,6 +6,7 @@
   import Projects from "./sections/Projects.svelte";
   import Skillset from "./sections/Skillset.svelte";
   import Bio from "./sections/Bio.svelte";
+  import Contact from "./sections/Contact.svelte";
 </script>
 
 <main>
@@ -14,12 +15,13 @@
   <Projects />
   <Skillset />
   <Bio />
+  <Contact />
 </main>
 
 <style>
   main {
     margin-inline: auto;
-    padding-bottom: 10rem;
+
     background: var(--background);
   }
 

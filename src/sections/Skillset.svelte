@@ -74,7 +74,7 @@
         </ul>
       </div>
       <div class="skills-design skills-container">
-        <h3>BackEnd</h3>
+        <h3>Design</h3>
         <ul>
           <li>
             <i class="devicon-xd-plain" />
@@ -132,6 +132,7 @@
       gap: 2em;
       list-style-type: none;
       padding: 0 1em;
+      margin-left: 1rem;
       margin-bottom: 3rem;
 
       & li {

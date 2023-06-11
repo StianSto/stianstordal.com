@@ -21,7 +21,7 @@
         0% 0% no-repeat padding-box;
     }
     &.secondary {
-      background-color: var(--midnight);
+      background-color: var(--secondary);
       color: var(--clr-inverse);
 
       &:focus,
