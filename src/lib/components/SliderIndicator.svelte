@@ -44,7 +44,7 @@
 
 <style>
   svg {
-    height: 160%;
-    translate: -5% -16%;
+    height: 150%;
+    translate: -2% -16%;
   }
 </style>

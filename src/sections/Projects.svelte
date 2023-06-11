@@ -47,6 +47,23 @@
     <h2>My Projects</h2>
 
     <div id="projectContainer">
+      <ul id="projectsSlider">
+        <div class="indicator">
+          <SliderIndicator />
+        </div>
+
+        {#each projectsJSON as { id, thumbnail }, index}
+          <!-- svelte-ignore a11y-click-events-have-key-events -->
+          <li
+            class:active={index === 0}
+            data-project={id}
+            on:click={(e) => viewProject(e)}
+          >
+            <img src={thumbnail} alt="" />
+          </li>
+        {/each}
+      </ul>
+
       <div id="projectsMonitor">
         <div id="projectsMonitorPc">
           <img src={activeProject.imageDesktop} alt="" />
@@ -55,10 +72,10 @@
           <img src={activeProject.imageMobile} alt="" />
         </div>
       </div>
+
       <div id="projectsBody">
-        <p class="description">
-          <b>"{activeProject.title}" </b>{activeProject.description}
-        </p>
+        <h3>{activeProject.title}</h3>
+        <p class="description">{activeProject.description}</p>
         <div class="btn-group">
           <Button theme="secondary"
             ><i class="fa fa-solid fa-globe" />Go to site</Button
@@ -69,23 +86,6 @@
         </div>
       </div>
     </div>
-
-    <ul id="projectsSlider">
-      <div class="indicator">
-        <SliderIndicator />
-      </div>
-
-      {#each projectsJSON as { id, thumbnail }, index}
-        <!-- svelte-ignore a11y-click-events-have-key-events -->
-        <li
-          class:active={index === 0}
-          data-project={id}
-          on:click={(e) => viewProject(e)}
-        >
-          <img src={thumbnail} alt="" />
-        </li>
-      {/each}
-    </ul>
   </div>
 </section>
 
@@ -94,27 +94,20 @@
 <style lang="scss">
   #myProjects {
     overflow: hidden;
+    max-width: 1000px;
+    margin-inline: auto;
+    margin-block: 1rem;
   }
   h2 {
     margin-block: 4rem;
   }
 
-  #projectContainer {
-    display: flex;
-    padding-inline: 2rem;
-
-    flex-direction: column;
-    @media screen and (max-width: 900px) {
-    }
-  }
-
   #projectsMonitor {
     flex: 5;
-    max-width: 600px;
     position: relative;
     display: flex;
     height: fit-content;
-    align-self: center;
+    margin-inline: auto;
 
     & > * {
       border-radius: 10px;
@@ -131,9 +124,10 @@
     }
 
     &Pc {
-      width: 90%;
+      width: 100%;
       aspect-ratio: 16 / 9;
-      transform: perspective(1000px) rotate3d(0, 1, 0, 20deg);
+      transform-origin: left;
+      transform: perspective(1000px) rotate3d(0, 1, 0, 12deg);
     }
 
     &Mobile {
@@ -142,12 +136,13 @@
       position: absolute;
       right: 0;
       top: 0px;
-      transform: perspective(500px) rotate3d(0, 1, 0, 5deg);
+      transform-origin: left;
+      transform: perspective(500px) rotate3d(0, 1, 0, 3deg);
     }
   }
 
   #projectsBody {
-    padding: 2rem;
+    margin-top: 2rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -174,10 +169,11 @@
   #projectsSlider {
     display: flex;
     list-style-type: none;
-    gap: 1rem;
-    margin: 4rem 1rem;
+    gap: 1.5vw;
+    margin: 2rem 0;
     position: relative;
     isolation: isolate;
+    padding: 0;
 
     & li {
       aspect-ratio: 16 / 9;
@@ -191,9 +187,10 @@
       & img {
         width: 100%;
         height: 100%;
-        object-fit: cover;
+        object-fit: contain;
         opacity: 0.7;
         transition: all 400ms ease;
+        background-color: var(--background);
       }
 
       &:hover {
