@@ -4,12 +4,14 @@
   import Hero from "./sections/Hero.svelte";
   import sectionDividerHero from "./assets/section-divider-hero.svg";
   import Projects from "./sections/Projects.svelte";
+  import Skillset from "./sections/Skillset.svelte";
 </script>
 
 <main>
   <Hero />
   <img src={sectionDividerHero} alt="" id="sectionDividerhero" />
   <Projects />
+  <Skillset />
 </main>
 
 <style>
@@ -20,6 +22,5 @@
 
   #sectionDividerhero {
     width: 100%;
-    translate: 0 -60%;
   }
 </style>
