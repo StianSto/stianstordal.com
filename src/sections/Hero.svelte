@@ -55,22 +55,6 @@
     }
   }
 
-  .custom-underline {
-    position: relative;
-
-    &::after {
-      content: "";
-      position: absolute;
-      background: url("../assets/underline.svg") no-repeat bottom left;
-      background-size: 100% 10%;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: -1;
-    }
-  }
-
   .get-in-touch {
     display: flex;
     align-items: center;

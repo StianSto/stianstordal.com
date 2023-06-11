@@ -2,17 +2,29 @@
   export let name = "";
   export let checked = false;
   export let size = "10px";
+
+  import { theme } from "../stores";
+
+  let currentTheme;
+  theme.subscribe((data) => (currentTheme = data));
+  let isChecked = currentTheme === "dark";
+
+  function toggleTheme() {
+    theme.update(() => (isChecked ? "dark" : "light"));
+    document.body.classList.toggle("dark");
+  }
 </script>
 
 <label class="switch" style="font-size: {size};">
-  <input type="checkbox" {name} bind:checked />
+  <input
+    type="checkbox"
+    {name}
+    bind:checked={isChecked}
+    on:change={toggleTheme}
+  />
   <span class="slider">
     <span class="slider-btn">
-      {#if checked}
-        <i class="fa fa-solid fa-moon" />
-      {:else}
-        <i class="fa fa-solid fa-sun" />
-      {/if}
+      <i class="fa fa-solid {isChecked ? 'fa-moon' : 'fa-sun'}" />
     </span>
     <span class="background">
       <i class="star" />
@@ -31,21 +43,24 @@
 <style lang="scss">
   .switch {
     position: relative;
-  }
-  input {
-    display: none;
-  }
-  .slider {
     --size: 1em;
     --height: calc(var(--size) * 3);
     --paddding: calc(var(--height) / 4);
     --width: calc(2.75 * var(--height));
 
+    width: 80px;
+    height: 40px;
+  }
+  input {
+    display: none;
+  }
+  .slider {
     width: var(--width);
     height: var(--height);
     padding: var(--paddding);
     border-radius: 100vw;
     background-color: #95e2ff;
+    overflow: hidden;
 
     box-shadow: inset 2px 2px 3px rgba(0, 0, 0, 0.3),
       inset -2px -2px 3px rgba(255, 255, 255, 0.2);
@@ -82,6 +97,7 @@
     & i {
       position: absolute;
       transition: all 200ms ease;
+      user-select: none;
     }
 
     .cloud {
@@ -125,8 +141,8 @@
   }
 
   input:checked ~ .slider {
-    border: 1px solid var(--secondary);
-    background: var(--secondary);
+    border: 1px solid var(--midnight);
+    background: var(--midnight);
 
     & .slider-btn {
       translate: 0px -50%;
