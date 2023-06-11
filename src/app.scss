@@ -5,7 +5,7 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 
-  --max-width: 1000px;
+  --max-width: 1100px;
 
   /* colors */
   /* light theme */
@@ -48,7 +48,11 @@ html {
   font-family: var(--font-family);
 }
 
-section {
+* {
+  margin: 0;
+}
+
+.container {
   max-width: var(--max-width);
   margin-inline: auto;
 }
@@ -57,12 +61,11 @@ h1 {
   font-size: var(--fs-h1);
   text-transform: capitalize;
 }
+
 h2 {
   font-size: var(--fs-h2);
 }
-h3 {
-  font-size: var(--fs-h3);
-}
+
 h3,
 .subtitle {
   font-size: var(--fs-subtitle);
