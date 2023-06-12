@@ -2,20 +2,24 @@
   import profileImg from "../assets/profile_stian.jpg";
   import Button from "../lib/components/Button.svelte";
   import drawnArrow from "../assets/drawn-arrow.svg";
+  import Underline from "../lib/components/Underline.svelte";
+  import ArrowDrawn from "../lib/components/ArrowDrawn.svelte";
 </script>
 
 <section id="hero">
   <div class="container">
     <div class="text">
       <h1>
-        Websites should have a <span class="custom-underline">meaningful</span> experience
+        Websites should have a
+        <Underline>meaningful</Underline>
+        experience
       </h1>
       <p class="subtitle">
         Contact me when you are ready for the next adventure!
       </p>
       <div class="get-in-touch">
         <Button>Get in touch</Button>
-        <img src={drawnArrow} alt="" />
+        <ArrowDrawn />
       </div>
     </div>
     <div class="img-container">

@@ -9,7 +9,7 @@
 >
   <defs>
     <linearGradient
-      id="linear-gradient"
+      id="heroGradientFill"
       x1="0.5"
       x2="2.069"
       y2="1.892"
@@ -23,7 +23,7 @@
     id="Path_7"
     data-name="Path 7"
     d="M0,0S494.627,69.721,974.627,87.156,1920,69.74,1920,69.74V192.988s-447.958-47.168-927.958-36.171S0,192.988,0,192.988Z"
-    fill="url(#linear-gradient)"
+    fill="url(#heroGradientFill)"
   />
 </svg>
 
