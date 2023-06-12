@@ -3,6 +3,7 @@
   import Button from "../lib/components/Button.svelte";
   import drawnArrow from "../assets/drawn-arrow.svg";
   import Underline from "../lib/components/Underline.svelte";
+  import ArrowDrawn from "../lib/components/ArrowDrawn.svelte";
 </script>
 
 <section id="hero">
@@ -18,7 +19,7 @@
       </p>
       <div class="get-in-touch">
         <Button>Get in touch</Button>
-        <img src={drawnArrow} alt="" />
+        <ArrowDrawn />
       </div>
     </div>
     <div class="img-container">
