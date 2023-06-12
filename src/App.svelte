@@ -18,6 +18,14 @@
   function toggleLang() {
     lang.update(() => (currentLang === "no" ? "uk" : "no"));
   }
+
+  if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+    theme.update(() => "dark");
+    document.body.classList.add("dark");
+  } else {
+    theme.update(() => "light");
+    document.body.classList.remove("dark");
+  }
 </script>
 
 <header>

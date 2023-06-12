@@ -141,8 +141,8 @@
   }
 
   input:checked ~ .slider {
-    border: 1px solid var(--midnight);
-    background: var(--midnight);
+    border: 1px solid var(--deep-blue);
+    background: var(--deep-blue);
 
     & .slider-btn {
       translate: 0px -50%;

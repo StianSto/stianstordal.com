@@ -111,7 +111,7 @@
 
     & > * {
       border-radius: 10px;
-      background-color: white;
+      background-color: var(--background);
       box-shadow: 2px 1px 4px 2px rgba(0, 0, 0, 0.1);
       overflow: hidden;
       transform-style: preserve-3d;
@@ -178,7 +178,7 @@
     & li {
       aspect-ratio: 16 / 9;
       flex: 1;
-      background-color: white;
+      background-color: var(--milkywhite);
       border: 1px solid var(--secondary);
       border-radius: 10px;
       transition: all 200ms ease;
@@ -190,7 +190,6 @@
         object-fit: contain;
         opacity: 0.7;
         transition: all 400ms ease;
-        background-color: var(--background);
       }
 
       &:hover {

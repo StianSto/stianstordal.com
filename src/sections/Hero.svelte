@@ -49,6 +49,10 @@
 
   .img-container {
     flex: 1;
+
+    @media screen and (max-width: 800px) {
+      display: none;
+    }
     & img {
       width: 100%;
       border-radius: 40% 70% 40% 70%;
