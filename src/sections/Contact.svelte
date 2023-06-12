@@ -58,15 +58,16 @@
     gap: 5vw;
 
     & > * {
-      flex: 1;
       min-width: min(300px, 100%);
     }
   }
 
   form {
+    flex: 1;
     display: flex;
     flex-direction: column;
     gap: 1em;
+    max-width: max(500px, 50vw);
 
     & input,
     & textarea {
@@ -86,12 +87,12 @@
     & > * {
       display: flex;
       align-items: center;
-      font-size: 1.5rem;
+      font-size: clamp(0.75rem, 1vw + 1rem, 1.5rem);
       gap: 1em;
       margin-bottom: 1rem;
 
       & i {
-        font-size: 2em;
+        font-size: 1.5em;
       }
     }
   }

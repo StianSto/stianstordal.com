@@ -3,6 +3,7 @@
   import sliderIndicator from "../assets/sliderIndicator.svg";
   import { onMount } from "svelte";
   import projectsJSON from "../lib/content/projects.json";
+  import SliderIndicator from "../lib/components/SliderIndicator.svelte";
 
   let activeProject = projectsJSON[0];
 
@@ -18,7 +19,9 @@
       (project) => project.id === clickedItem.dataset.project
     );
 
+    // execute slide indicator and slide indicator on window resize
     slideIndicator(projectsSlider, clickedItem);
+    window.onresize = () => slideIndicator(projectsSlider, clickedItem);
   }
 
   function slideIndicator(parent, child) {
@@ -28,7 +31,7 @@
 
     const indicator = document.querySelector(".indicator");
     // @ts-ignore
-    indicator.style.translate = `${slideTo}px -15%`;
+    indicator.style.translate = `${slideTo}px 0`;
   }
 
   onMount(() => {
@@ -39,11 +42,28 @@
 </script>
 
 <!-- output -->
-<section>
+<section id="myProjects">
   <div class="container">
     <h2>My Projects</h2>
 
     <div id="projectContainer">
+      <ul id="projectsSlider">
+        <div class="indicator">
+          <SliderIndicator />
+        </div>
+
+        {#each projectsJSON as { id, thumbnail }, index}
+          <!-- svelte-ignore a11y-click-events-have-key-events -->
+          <li
+            class:active={index === 0}
+            data-project={id}
+            on:click={(e) => viewProject(e)}
+          >
+            <img src={thumbnail} alt="" />
+          </li>
+        {/each}
+      </ul>
+
       <div id="projectsMonitor">
         <div id="projectsMonitorPc">
           <img src={activeProject.imageDesktop} alt="" />
@@ -52,10 +72,10 @@
           <img src={activeProject.imageMobile} alt="" />
         </div>
       </div>
+
       <div id="projectsBody">
-        <p class="description">
-          <b>"{activeProject.title}" </b>{activeProject.description}
-        </p>
+        <h3>{activeProject.title}</h3>
+        <p class="description">{activeProject.description}</p>
         <div class="btn-group">
           <Button theme="secondary"
             ><i class="fa fa-solid fa-globe" />Go to site</Button
@@ -66,47 +86,32 @@
         </div>
       </div>
     </div>
-
-    <ul id="projectsSlider">
-      <img src={sliderIndicator} alt="" class="indicator" />
-
-      {#each projectsJSON as { id, thumbnail }, index}
-        <!-- svelte-ignore a11y-click-events-have-key-events -->
-        <li
-          class:active={index === 0}
-          data-project={id}
-          on:click={(e) => viewProject(e)}
-        >
-          <img src={thumbnail} alt="" />
-        </li>
-      {/each}
-    </ul>
   </div>
 </section>
 
 <!-- output [end] -->
 
 <style lang="scss">
+  #myProjects {
+    overflow: hidden;
+    max-width: 1000px;
+    margin-inline: auto;
+    margin-block: 1rem;
+  }
   h2 {
     margin-block: 4rem;
   }
 
-  #projectContainer {
-    display: flex;
-    padding-inline: 2rem;
-  }
-
   #projectsMonitor {
     flex: 5;
-    max-width: 600px;
     position: relative;
     display: flex;
     height: fit-content;
-    align-self: center;
+    margin-inline: auto;
 
     & > * {
       border-radius: 10px;
-      background-color: white;
+      background-color: var(--background);
       box-shadow: 2px 1px 4px 2px rgba(0, 0, 0, 0.1);
       overflow: hidden;
       transform-style: preserve-3d;
@@ -119,9 +124,10 @@
     }
 
     &Pc {
-      width: 90%;
+      width: 100%;
       aspect-ratio: 16 / 9;
-      transform: perspective(1000px) rotate3d(0, 1, 0, 20deg);
+      transform-origin: left;
+      transform: perspective(1000px) rotate3d(0, 1, 0, 12deg);
     }
 
     &Mobile {
@@ -130,12 +136,13 @@
       position: absolute;
       right: 0;
       top: 0px;
-      transform: perspective(500px) rotate3d(0, 1, 0, 5deg);
+      transform-origin: left;
+      transform: perspective(500px) rotate3d(0, 1, 0, 3deg);
     }
   }
 
   #projectsBody {
-    padding: 2rem;
+    margin-top: 2rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -162,15 +169,16 @@
   #projectsSlider {
     display: flex;
     list-style-type: none;
-    gap: 1rem;
-    margin: 4rem 1rem;
+    gap: 1.5vw;
+    margin: 2rem 0;
     position: relative;
     isolation: isolate;
+    padding: 0;
 
     & li {
       aspect-ratio: 16 / 9;
       flex: 1;
-      background-color: white;
+      background-color: var(--milkywhite);
       border: 1px solid var(--secondary);
       border-radius: 10px;
       transition: all 200ms ease;
@@ -179,7 +187,7 @@
       & img {
         width: 100%;
         height: 100%;
-        object-fit: cover;
+        object-fit: contain;
         opacity: 0.7;
         transition: all 400ms ease;
       }
@@ -198,7 +206,7 @@
       position: absolute;
       top: 0;
       left: 0;
-      height: 150%;
+      height: 100%;
       transition: translate 300ms ease-in-out;
       z-index: -1;
     }

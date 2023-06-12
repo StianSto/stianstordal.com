@@ -42,12 +42,21 @@
             <span>Bootstrap</span>
           </li>
           <li>
+            <i class="devicon-tailwindcss-plain" />
+
+            <span>Tailwind</span>
+          </li>
+          <li>
             <i class="devicon-sass-plain" />
             <span>Sass</span>
           </li>
           <li>
             <i class="devicon-react-plain" />
             <span>React</span>
+          </li>
+          <li>
+            <i class="devicon-svelte-plain" />
+            <span>Svelte</span>
           </li>
           <li class="no-icon">
             <img class="cypress" src={cypressLogo} alt="cypress logo" />
@@ -107,6 +116,7 @@
 <style>
   #skillset {
     min-height: 500px;
+    background-color: var(--primary);
     background: var(--gradient-primary);
     color: white;
   }
@@ -128,7 +138,7 @@
   .skills-container {
     & ul {
       display: grid;
-      grid-template-columns: repeat(auto-fit, 100px);
+      grid-template-columns: repeat(auto-fit, var(--fs-icons));
       gap: 2em;
       list-style-type: none;
       padding: 0 1em;
@@ -137,7 +147,7 @@
 
       & li {
         position: relative;
-        font-size: 6em;
+        font-size: var(--fs-icons);
         margin-block: auto;
         height: 1em;
 
@@ -163,7 +173,7 @@
 
       & .no-icon {
         & .cypress {
-          width: 6rem;
+          width: var(--fs-icons);
           margin-bottom: 8px;
         }
       }
