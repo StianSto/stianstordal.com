@@ -90,6 +90,14 @@
             <span>Adobe XD</span>
           </li>
           <li>
+            <i class="devicon-illustrator-plain" />
+            <span>Adobe Illustrator</span>
+          </li>
+          <li>
+            <i class="devicon-photoshop-plain" />
+            <span>Adobe Photoshop</span>
+          </li>
+          <li>
             <i class="devicon-figma-plain" />
             <span>Figma</span>
           </li>
@@ -139,7 +147,7 @@
     & ul {
       display: grid;
       grid-template-columns: repeat(auto-fit, var(--fs-icons));
-      gap: 2em;
+      gap: 3em 2em;
       list-style-type: none;
       padding: 0 1em;
       margin-left: 1rem;
