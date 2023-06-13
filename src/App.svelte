@@ -12,6 +12,7 @@
 
   import { lang, theme } from "./lib/stores";
   import HeroDivider from "./lib/components/dividers/HeroDivider.svelte";
+  import Nav from "./lib/components/Nav.svelte";
 
   let currentLang;
   lang.subscribe((data) => (currentLang = data));
@@ -41,6 +42,8 @@
   </button>
   <ToggleSwitch size="0.5rem" />
 </header>
+
+<Nav />
 
 <main>
   <Hero />
