@@ -13,73 +13,68 @@
   };
 </script>
 
-<button on:click={toggleMenu} id="showNavBtn" class:active={showNav}>
-  <MenuBtn active={showNav} />
-</button>
+<aside class:showNav bind:this={aside}>
+  <button on:click={toggleMenu} id="showNavBtn" class:active={showNav}>
+    <MenuBtn active={showNav} />
+  </button>
 
-<nav class:showNav>
-  <ul>
-    <li on:click={toggleMenu} on:keypress={toggleMenu}>
-      <a href="#hero">
-        To the Top <i class="fa fa-solid fa-home" />
-      </a>
-    </li>
-    <li on:click={toggleMenu} on:keypress={toggleMenu}>
-      <a href="#myProjects">
-        Projects <i class="fa afa-solid fa-briefcase" />
-      </a>
-    </li>
-    <li on:click={toggleMenu} on:keypress={toggleMenu}>
-      <a href="#skillset">
-        Skillset <i class="fa fa-solid fa-toolbox" />
-      </a>
-    </li>
-    <li on:click={toggleMenu} on:keypress={toggleMenu}>
-      <a href="#bio">
-        About Me <i class="fa fa-solid fa-user" />
-      </a>
-    </li>
-    <li on:click={toggleMenu} on:keypress={toggleMenu}>
-      <a href="#contact">
-        Get in Touch <i class="fa fa-solid fa-phone-alt" />
-      </a>
-    </li>
-  </ul>
+  <nav class:showNav>
+    <ul>
+      <li on:click={toggleMenu} on:keypress={toggleMenu}>
+        <a href="#hero">
+          To the Top <i class="fa fa-solid fa-home" />
+        </a>
+      </li>
+      <li on:click={toggleMenu} on:keypress={toggleMenu}>
+        <a href="#myProjects">
+          Projects <i class="fa afa-solid fa-briefcase" />
+        </a>
+      </li>
+      <li on:click={toggleMenu} on:keypress={toggleMenu}>
+        <a href="#skillset">
+          Skillset <i class="fa fa-solid fa-toolbox" />
+        </a>
+      </li>
+      <li on:click={toggleMenu} on:keypress={toggleMenu}>
+        <a href="#bio">
+          About Me <i class="fa fa-solid fa-user" />
+        </a>
+      </li>
+      <li on:click={toggleMenu} on:keypress={toggleMenu}>
+        <a href="#contact">
+          Get in Touch <i class="fa fa-solid fa-phone-alt" />
+        </a>
+      </li>
+    </ul>
+  </nav>
+
   <div class="background" class:showNav />
-</nav>
+</aside>
 
 <style lang="scss">
   :root {
     --btn-margin: 1rem;
     --btn-width: 4rem;
   }
-  /* aside {
+
+  aside {
     position: fixed;
     top: 0;
     right: 0;
-    isolation: isolate;
     z-index: 1000;
-    display: flex;
-    flex-direction: column;
-    align-items: end;
-    padding: 1rem;
-  } */
+  }
 
   #showNavBtn {
-    position: fixed;
-    inset: 1rem;
-
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
     border: none;
     background: var(--milkywhite);
     border-radius: 50%;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
     width: var(--btn-width);
     height: var(--btn-width);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-left: auto;
-    z-index: 1000;
+    z-index: 2;
   }
 
   .background {
@@ -113,10 +108,15 @@
   }
 
   nav {
+    z-index: 1;
+    translate: 100%;
     position: fixed;
-    top: 0;
-    right: 0;
-    z-index: 999;
+    top: calc(var(--btn-width));
+    right: 1rem;
+
+    &.showNav {
+      translate: 0;
+    }
   }
 
   ul {
@@ -125,7 +125,6 @@
     text-align: right;
     font-size: 2.5rem;
     padding: 3rem 1rem;
-    margin-top: 4rem;
 
     & li {
       margin-block: 0.5em;
