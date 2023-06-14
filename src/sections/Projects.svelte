@@ -77,10 +77,20 @@
         <h3>{activeProject.title}</h3>
         <p class="description">{activeProject.description}</p>
         <div class="btn-group">
-          <Button theme="secondary"
-            ><i class="fa fa-solid fa-globe" />Go to site</Button
+          <a
+            href={activeProject.websiteLink}
+            target="_blank"
+            rel="noreferrer noopener"
           >
-          <a href="https://github.com/StianSto/stianstordal.com"
+            <Button theme="secondary"
+              ><i class="fa fa-solid fa-globe" />Go to site</Button
+            >
+          </a>
+
+          <a
+            href="https://github.com/StianSto/stianstordal.com"
+            target="_blank"
+            rel="noreferrer noopener"
             ><i class="fa fa-brands fa-github" />Project Repo</a
           >
         </div>
@@ -102,6 +112,10 @@
     margin-block: 4rem;
   }
 
+  h3 {
+    margin-block: 1rem;
+  }
+
   #projectsMonitor {
     flex: 5;
     position: relative;
@@ -120,6 +134,7 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
+        object-position: top;
       }
     }
 
@@ -132,7 +147,7 @@
 
     &Mobile {
       height: 100%;
-      aspect-ratio: 9 / 16;
+      aspect-ratio: 9 / 19.5;
       position: absolute;
       right: 0;
       top: 0px;
@@ -183,6 +198,7 @@
       border-radius: 10px;
       transition: all 200ms ease;
       overflow: hidden;
+      min-width: min(200px, 50vw);
 
       & img {
         width: 100%;
