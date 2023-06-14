@@ -18,7 +18,9 @@
         Contact me when you are ready for the next adventure!
       </p>
       <div class="get-in-touch">
-        <Button>Get in touch</Button>
+        <a href="#contact">
+          <Button>Get in touch</Button>
+        </a>
         <ArrowDrawn />
       </div>
     </div>
