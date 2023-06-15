@@ -59,17 +59,32 @@
             data-project={id}
             on:click={(e) => viewProject(e)}
           >
-            <img src={thumbnail} alt="" />
+            <img
+              src={thumbnail.w1600}
+              srcset={`${thumbnail.w1600} 1600w, ${thumbnail.w800} 800w`}
+              alt=""
+              loading="lazy"
+            />
           </li>
         {/each}
       </ul>
 
       <div id="projectsMonitor">
         <div id="projectsMonitorPc">
-          <img src={activeProject.imageDesktop} alt="" />
+          <img
+            srcset={`${activeProject.imageDesktop.w1600} 1600w, ${activeProject.imageDesktop.w800} 800w`}
+            src={activeProject.imageDesktop.w1600}
+            alt=""
+            loading="lazy"
+          />
         </div>
         <div id="projectsMonitorMobile">
-          <img src={activeProject.imageMobile} alt="" />
+          <img
+            src={activeProject.imageMobile.w1600}
+            srcset={`${activeProject.imageMobile.w1600} 1600w, ${activeProject.imageMobile.w800} 800w`}
+            alt=""
+            loading="lazy"
+          />
         </div>
       </div>
 
