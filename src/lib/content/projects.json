@@ -9,14 +9,14 @@
       "w800": "/projects/barterhouse/logo-800w.png"
     },
     "imageDesktop": {
-      "original": "/projects/barterhouse/desktop.png",
-      "w1600": "/projects/barterhouse/desktop-1600w.png",
-      "w800": "/projects/barterhouse/desktop-800w.png"
+      "original": "/projects/barterhouse/desktop.jpg",
+      "w1600": "/projects/barterhouse/desktop-1600w.jpg",
+      "w800": "/projects/barterhouse/desktop-800w.jpg"
     },
     "imageMobile": {
-      "original": "/projects/barterhouse/phone.png",
-      "w1600": "/projects/barterhouse/phone-1600w.png",
-      "w800": "/projects/barterhouse/phone-800w.png"
+      "original": "/projects/barterhouse/phone.jpg",
+      "w1600": "/projects/barterhouse/phone-1600w.jpg",
+      "w800": "/projects/barterhouse/phone-800w.jpg"
     },
     "websiteLink": "https://barterhouse.netlify.app/",
     "repoLink": "https://github.com/StianSto/BarterHouse"
@@ -31,14 +31,14 @@
       "w800": "/projects/thedailybrew/logo-800w.png"
     },
     "imageDesktop": {
-      "original": "/projects/thedailybrew/desktop.png",
-      "w1600": "/projects/thedailybrew/desktop-1600w.png",
-      "w800": "/projects/thedailybrew/desktop-800w.png"
+      "original": "/projects/thedailybrew/desktop.jpg",
+      "w1600": "/projects/thedailybrew/desktop-1600w.jpg",
+      "w800": "/projects/thedailybrew/desktop-800w.jpg"
     },
     "imageMobile": {
-      "original": "/projects/thedailybrew/phone.png",
-      "w1600": "/projects/thedailybrew/phone-1600w.png",
-      "w800": "/projects/thedailybrew/phone-800w.png"
+      "original": "/projects/thedailybrew/phone.jpg",
+      "w1600": "/projects/thedailybrew/phone-1600w.jpg",
+      "w800": "/projects/thedailybrew/phone-800w.jpg"
     },
     "websiteLink": "https://thedailybrew.netlify.app/",
     "repoLink": "https://github.com/Noroff-FEU-Assignments/project-exam-1-StianSto"
@@ -76,14 +76,14 @@
     },
 
     "imageDesktop": {
-      "original": "/projects/thedailybrew/desktop.png",
-      "w1600": "/projects/thedailybrew/desktop-1600w.png",
-      "w800": "/projects/thedailybrew/desktop-800w.png"
+      "original": "/projects/thedailybrew/desktop.jpg",
+      "w1600": "/projects/thedailybrew/desktop-1600w.jpg",
+      "w800": "/projects/thedailybrew/desktop-800w.jpg"
     },
     "imageMobile": {
-      "original": "/projects/thedailybrew/phone.png",
-      "w1600": "/projects/thedailybrew/phone-1600w.png",
-      "w800": "/projects/thedailybrew/phone-800w.png"
+      "original": "/projects/thedailybrew/phone.jpg",
+      "w1600": "/projects/thedailybrew/phone-1600w.jpg",
+      "w800": "/projects/thedailybrew/phone-800w.jpg"
     },
     "websiteLink": "https://www.example.com/project4",
     "repoLink": "https://github.com/Noroff-FEU-Assignments/project-exam-1-StianSto"
