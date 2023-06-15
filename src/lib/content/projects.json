@@ -2,7 +2,11 @@
   {
     "id": "barterHouse",
     "title": "BarterHouse",
-    "description": "BarterHouse is an auction site where users can sign up, browse around and buy items, or even list items off their own. Whether they want to find something new, or to make a profit on their old things, this is a site that is fun and easy to use!",
+    "description": {
+      "no": "BarterHouse er en auksjonsside der brukere kan registrere seg, bla rundt og kjøpe varer, eller til og med liste opp varer selv. Enten de vil finne noe nytt, eller tjene penger på de gamle tingene sine, er dette et nettsted som er morsom og enkel å bruke!",
+      "en": "BarterHouse is an auction site where users can sign up, browse around and buy items, or even list items off their own. Whether they want to find something new, or to make a profit on their old things, this is a site that is fun and easy to use!"
+    },
+
     "thumbnail": {
       "original": "/projects/barterhouse/logo.png",
       "w1600": "/projects/barterhouse/logo-1600w.png",
@@ -24,7 +28,10 @@
   {
     "id": "theDailyBrew",
     "title": "The Daily Brew",
-    "description": "The Daily Brew is a blog for coffee lovers and -enthusiasts. This website was made as my exam project during my first year at Noroff. making the website challenged me to explore the world of JS more than ever before.",
+    "description": {
+      "no": "The Daily Brew er en blogg for kaffeelskere og -entusiaster. Denne nettsiden ble laget som mitt eksamensprosjekt under mitt første år på Noroff. Å lage dette nettstedet utfordret meg til å utforske JavaScript verdenen mer enn noen gang før.",
+      "en": "The Daily Brew is a blog for coffee lovers and -enthusiasts. This website was made as my exam project during my first year at Noroff. making the website challenged me to explore the world of JS more than ever before."
+    },
     "thumbnail": {
       "original": "/projects/thedailybrew/logo.png",
       "w1600": "/projects/thedailybrew/logo-1600w.png",
@@ -44,9 +51,12 @@
     "repoLink": "https://github.com/Noroff-FEU-Assignments/project-exam-1-StianSto"
   },
   {
-    "id": "project3",
-    "title": "Project 3",
-    "description": "CSM is a local science museum meant for children interested in science and learning how the world works. The website seeks to intrigue children to learn more and opens up for visiting the museum. the design is colorful, but not childish.",
+    "id": "csm",
+    "title": "Community Science Museum (CSM)",
+    "description": {
+      "no": "CSM er et lokalt vitenskapsmuseum ment for barn som er interessert i vitenskap og lære hvordan verden fungerer. Nettstedet søker å fascinere barn til å lære mer og åpner opp for å besøke museet. Designet er fargerikt, men ikke barnslig.",
+      "en": "CSM is a local science museum meant for children interested in science and learning how the world works. The website seeks to intrigue children to learn more and opens up for visiting the museum. the design is colorful, but not childish."
+    },
     "thumbnail": {
       "original": "/projects/csm/logo.png",
       "w1600": "/projects/csm/logo-1600w.png",
@@ -68,7 +78,10 @@
   {
     "id": "project4",
     "title": "Project 4",
-    "description": "Mauris ultrices eros in cursus turpis massa tincidunt dui. Convallis a cras semper auctor neque. Mauris pellentesque pulvinar pellentesque habitant morbi tristique senectus. Eget est lorem ipsum dolor sit amet consectetur. Sed arcu non odio euismod lacinia. Nulla porttitor ",
+    "description": {
+      "no": "Mauris ultrices eros in cursus turpis massa tincidunt dui. Convallis a cras semper auctor neque. Mauris pellentesque pulvinar pellentesque habitant morbi tristique senectus. Eget est lorem ipsum dolor sit amet consectetur. Sed arcu non odio euismod lacinia. Nulla porttitor ",
+      "en": "Mauris ultrices eros in cursus turpis massa tincidunt dui. Convallis a cras semper auctor neque. Mauris pellentesque pulvinar pellentesque habitant morbi tristique senectus. Eget est lorem ipsum dolor sit amet consectetur. Sed arcu non odio euismod lacinia. Nulla porttitor "
+    },
     "thumbnail": {
       "original": "https://s3-alpha.figma.com/hub/file/1913095808/a7bdc469-cd70-4ea1-bb57-b59204ad8182-cover.png",
       "w1600": "https://s3-alpha.figma.com/hub/file/1913095808/a7bdc469-cd70-4ea1-bb57-b59204ad8182-cover.png",

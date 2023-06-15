@@ -1,5 +1,9 @@
 <script>
   import Button from "../lib/components/Button.svelte";
+  import { lang } from "../lib/stores";
+
+  let currentLang;
+  lang.subscribe((data) => (currentLang = data));
 </script>
 
 <section id="contact">
@@ -14,14 +18,28 @@
   </svg>
 
   <div class="container">
-    <h2>Get in Touch</h2>
+    <h2>
+      {#if currentLang === "en"}
+        Get in Touch
+      {:else}
+        Ta Kontakt
+      {/if}
+    </h2>
     <div class="flex">
       <form action="">
-        <input type="text" name="name" placeholder="Name" required />
-        <input type="email" name="email" placeholder="Email" required />
-        <input type="text" name="subject" placeholder="Subject" required />
-        <textarea name="message" rows="6" placeholder="Message" />
-        <Button>Send Message</Button>
+        {#if currentLang === "en"}
+          <input type="text" name="name" placeholder="Name" required />
+          <input type="email" name="email" placeholder="Email" required />
+          <input type="text" name="subject" placeholder="Subject" required />
+          <textarea name="message" rows="6" placeholder="Message" />
+          <Button>Send Message</Button>
+        {:else}
+          <input type="text" name="name" placeholder="Ditt Navn" required />
+          <input type="email" name="email" placeholder="Email" required />
+          <input type="text" name="subject" placeholder="Emne" required />
+          <textarea name="message" rows="6" placeholder="Din Melding" />
+          <Button>Send Melding</Button>
+        {/if}
       </form>
       <div class="contact-info">
         <div>

@@ -2,6 +2,10 @@
   import Skillset from "./Skillset.svelte";
   import cypressLogo from "../assets/cypress-logo.svg";
   import skillsetTopBow from "../assets/skillsetTopBow.svg";
+  import { lang } from "../lib/stores";
+
+  let currentLang;
+  lang.subscribe((data) => (currentLang = data));
 </script>
 
 <section id="skillset">
@@ -20,7 +24,13 @@
   </svg>
 
   <div class="container">
-    <h2>My Skillset</h2>
+    <h2>
+      {#if currentLang === "en"}
+        My Skillset
+      {:else}
+        Min Kompetanse
+      {/if}
+    </h2>
     <div>
       <div class="skills-frontend skills-container">
         <h3>FrontEnd</h3>
