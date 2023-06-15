@@ -3,9 +3,21 @@
     "id": "barterHouse",
     "title": "BarterHouse",
     "description": "BarterHouse is an auction site where users can sign up, browse around and buy items, or even list items off their own. Whether they want to find something new, or to make a profit on their old things, this is a site that is fun and easy to use!",
-    "thumbnail": "/projects/barterhouse/logo.png",
-    "imageDesktop": "/projects/barterhouse/desktop.png",
-    "imageMobile": "/projects/barterhouse/phone.png",
+    "thumbnail": {
+      "original": "/projects/barterhouse/logo.png",
+      "w1600": "/projects/barterhouse/logo-1600w.png",
+      "w800": "/projects/barterhouse/logo-800w.png"
+    },
+    "imageDesktop": {
+      "original": "/projects/barterhouse/desktop.png",
+      "w1600": "/projects/barterhouse/desktop-1600w.png",
+      "w800": "/projects/barterhouse/desktop-800w.png"
+    },
+    "imageMobile": {
+      "original": "/projects/barterhouse/phone.png",
+      "w1600": "/projects/barterhouse/phone-1600w.png",
+      "w800": "/projects/barterhouse/phone-800w.png"
+    },
     "websiteLink": "https://barterhouse.netlify.app/",
     "repoLink": "https://github.com/StianSto/BarterHouse"
   },
@@ -13,9 +25,21 @@
     "id": "theDailyBrew",
     "title": "The Daily Brew",
     "description": "The Daily Brew is a blog for coffee lovers and -enthusiasts. This website was made as my exam project during my first year at Noroff. making the website challenged me to explore the world of JS more than ever before.",
-    "thumbnail": "/projects/thedailybrew/logo.png",
-    "imageDesktop": "/projects/thedailybrew/desktop.png",
-    "imageMobile": "/projects/thedailybrew/phone.png",
+    "thumbnail": {
+      "original": "/projects/thedailybrew/logo.png",
+      "w1600": "/projects/thedailybrew/logo-1600w.png",
+      "w800": "/projects/thedailybrew/logo-800w.png"
+    },
+    "imageDesktop": {
+      "original": "/projects/thedailybrew/desktop.png",
+      "w1600": "/projects/thedailybrew/desktop-1600w.png",
+      "w800": "/projects/thedailybrew/desktop-800w.png"
+    },
+    "imageMobile": {
+      "original": "/projects/thedailybrew/phone.png",
+      "w1600": "/projects/thedailybrew/phone-1600w.png",
+      "w800": "/projects/thedailybrew/phone-800w.png"
+    },
     "websiteLink": "https://thedailybrew.netlify.app/",
     "repoLink": "https://github.com/Noroff-FEU-Assignments/project-exam-1-StianSto"
   },
@@ -23,9 +47,21 @@
     "id": "project3",
     "title": "Project 3",
     "description": "CSM is a local science museum meant for children interested in science and learning how the world works. The website seeks to intrigue children to learn more and opens up for visiting the museum. the design is colorful, but not childish.",
-    "thumbnail": "/projects/csm/logo.png",
-    "imageDesktop": "/projects/csm/desktop.png",
-    "imageMobile": "/projects/csm/phone.png",
+    "thumbnail": {
+      "original": "/projects/csm/logo.png",
+      "w1600": "/projects/csm/logo-1600w.png",
+      "w800": "/projects/csm/logo-800w.png"
+    },
+    "imageDesktop": {
+      "original": "/projects/csm/desktop.jpg",
+      "w1600": "/projects/csm/desktop-1600w.jpg",
+      "w800": "/projects/csm/desktop-800w.jpg"
+    },
+    "imageMobile": {
+      "original": "/projects/csm/phone.jpg",
+      "w1600": "/projects/csm/phone-1600w.jpg",
+      "w800": "/projects/csm/phone-800w.jpg"
+    },
     "websiteLink": "https://condescending-pike-cf9508.netlify.app/",
     "repoLink": "https://github.com/StianSto/Community-Science-Museum__Stian-Stordal"
   },
@@ -33,9 +69,23 @@
     "id": "project4",
     "title": "Project 4",
     "description": "Mauris ultrices eros in cursus turpis massa tincidunt dui. Convallis a cras semper auctor neque. Mauris pellentesque pulvinar pellentesque habitant morbi tristique senectus. Eget est lorem ipsum dolor sit amet consectetur. Sed arcu non odio euismod lacinia. Nulla porttitor ",
-    "thumbnail": "https://s3-alpha.figma.com/hub/file/1913095808/a7bdc469-cd70-4ea1-bb57-b59204ad8182-cover.png",
-    "imageDesktop": "https://assets-prd.ignimgs.com/2021/09/14/lostinrandom-blogroll-01-1631659942612.jpg",
-    "imageMobile": "https://images.unsplash.com/photo-1662010021854-e67c538ea7a9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=704&q=80",
-    "websiteLink": "https://www.example.com/project4"
+    "thumbnail": {
+      "original": "https://s3-alpha.figma.com/hub/file/1913095808/a7bdc469-cd70-4ea1-bb57-b59204ad8182-cover.png",
+      "w1600": "https://s3-alpha.figma.com/hub/file/1913095808/a7bdc469-cd70-4ea1-bb57-b59204ad8182-cover.png",
+      "w800": "https://s3-alpha.figma.com/hub/file/1913095808/a7bdc469-cd70-4ea1-bb57-b59204ad8182-cover.png"
+    },
+
+    "imageDesktop": {
+      "original": "/projects/thedailybrew/desktop.png",
+      "w1600": "/projects/thedailybrew/desktop-1600w.png",
+      "w800": "/projects/thedailybrew/desktop-800w.png"
+    },
+    "imageMobile": {
+      "original": "/projects/thedailybrew/phone.png",
+      "w1600": "/projects/thedailybrew/phone-1600w.png",
+      "w800": "/projects/thedailybrew/phone-800w.png"
+    },
+    "websiteLink": "https://www.example.com/project4",
+    "repoLink": "https://github.com/Noroff-FEU-Assignments/project-exam-1-StianSto"
   }
 ]
