@@ -1,27 +1,57 @@
 <script>
-  import Button from "../lib/components/Button.svelte";
+  import { lang } from "../lib/stores";
+
+  let currentLang;
+  lang.subscribe((data) => (currentLang = data));
 </script>
 
 <section id="bio">
   <div class="container">
-    <h2>Who am I?</h2>
-    <p>
-      Hi! My name is Stian. I am a Front-End / aspiring Full-stack developer,
-      with a passion for combining creativity and logic. I am a Norwegian
-      28-year old, and i speak scandinavian languages and english fluently.
-    </p>
-    <p>
-      I value teamwork and discipline above all else and I like to work with
-      people who have the same interest in their work as i do, and love what
-      they do as much as i do.
-    </p>
-    <p>
-      As a developer i have an unquenchable thirst for knowledge and have a need
-      for continously expanding my knowledge in my field. I like working with JS
-      to try and solve logical puzzles. I am also fond of working with design,
-      and the balance between learning, logical thinking and creativity is what
-      keeps me going as a developer
-    </p>
+    <h2>
+      {#if currentLang === "en"}
+        Who am I?
+      {:else}
+        Hvem er jeg?
+      {/if}
+    </h2>
+    {#if currentLang === "en"}
+      <p>
+        Hi! My name is Stian. I am a Front-End / aspiring Full-stack developer,
+        with a passion for combining creativity and logic. I am a Norwegian
+        28-year old, and i speak scandinavian languages and english fluently.
+      </p>
+      <p>
+        I value teamwork and discipline above all else and I like to work with
+        people who have the same interest in their work as i do, and love what
+        they do as much as i do.
+      </p>
+      <p>
+        As a developer i have an unquenchable thirst for knowledge and have a
+        need for continously expanding my knowledge in my field. I like working
+        with JS to try and solve logical puzzles. I am also fond of working with
+        design, and the balance between learning, logical thinking and
+        creativity is what keeps me going as a developer
+      </p>
+    {:else}
+      <p>
+        Hei! Mitt navn er Stian. Jeg er en front-end / aspirerende
+        fullstack-utvikler, med en lidenskap for å kombinere kreativitet og
+        logikk. Jeg er 28 år gammel nordmann, og jeg snakker skandinaviske språk
+        og engelsk flytende.
+      </p>
+      <p>
+        Jeg verdsetter teamarbeid og disiplin fremfor alt annet og liker å jobbe
+        med folk som har samme interesse for arbeidet sitt som meg, og elsker
+        hva de gjør like mye som meg.
+      </p>
+      <p>
+        Som utvikler har jeg en uslukkelig tørst etter kunnskap og har en behov
+        for å kontinuerlig utvide min kunnskap innen mitt felt. Jeg liker å
+        jobbe med JS for å prøve å løse logiske gåter. Jeg er også glad i å
+        jobbe med design, og balansen mellom læring, logisk tenkning og
+        kreativitet er det som holder meg gående som utvikler.
+      </p>
+    {/if}
 
     <div class="link-group">
       <a href="https://www.linkedin.com/in/stian-stordal-51222b15b/">

@@ -4,22 +4,42 @@
   import drawnArrow from "../assets/drawn-arrow.svg";
   import Underline from "../lib/components/Underline.svelte";
   import ArrowDrawn from "../lib/components/ArrowDrawn.svelte";
+  import { lang } from "../lib/stores";
+
+  let currentLang;
+  lang.subscribe((data) => (currentLang = data));
 </script>
 
 <section id="hero">
   <div class="container">
     <div class="text">
       <h1>
-        Websites should have a
-        <Underline>meaningful</Underline>
-        experience
+        {#if currentLang === "en"}
+          Websites should have a
+          <Underline>meaningful</Underline>
+          experience
+        {:else}
+          Nettsider skal gi en
+          <Underline>meningsfylt</Underline>
+          opplevelse
+        {/if}
       </h1>
       <p class="subtitle">
-        Contact me when you are ready for the next adventure!
+        {#if currentLang === "en"}
+          Contact me to hire me or for consulting!
+        {:else}
+          Ta kontakt for å ansette meg eller for konsultasjon
+        {/if}
       </p>
       <div class="get-in-touch">
         <a href="#contact">
-          <Button>Get in touch</Button>
+          <Button>
+            {#if currentLang === "en"}
+              Get in touch
+            {:else}
+              Kontakt Meg
+            {/if}
+          </Button>
         </a>
         <ArrowDrawn />
       </div>

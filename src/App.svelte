@@ -17,7 +17,8 @@
   let currentLang;
   lang.subscribe((data) => (currentLang = data));
   function toggleLang() {
-    lang.update(() => (currentLang === "no" ? "uk" : "no"));
+    lang.update(() => (currentLang === "no" ? "en" : "no"));
+    document.documentElement.lang = currentLang;
   }
 
   if (window.matchMedia("(prefers-color-scheme: dark)").matches) {

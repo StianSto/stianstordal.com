@@ -4,8 +4,12 @@
   import { onMount } from "svelte";
   import projectsJSON from "../lib/content/projects.json";
   import SliderIndicator from "../lib/components/SliderIndicator.svelte";
+  import { lang } from "../lib/stores";
 
   let activeProject = projectsJSON[0];
+
+  let currentLang;
+  lang.subscribe((data) => (currentLang = data));
 
   function viewProject(e) {
     const projectsSlider = document.querySelector("#projectsSlider");
@@ -44,7 +48,13 @@
 <!-- output -->
 <section id="myProjects">
   <div class="container">
-    <h2>My Projects</h2>
+    <h2>
+      {#if currentLang === "en"}
+        My Projects
+      {:else}
+        Mine Prosjekter
+      {/if}
+    </h2>
 
     <div id="projectContainer">
       <ul id="projectsSlider">
@@ -90,7 +100,13 @@
 
       <div id="projectsBody">
         <h3>{activeProject.title}</h3>
-        <p class="description">{activeProject.description}</p>
+        <p class="description">
+          {#if currentLang === "en"}
+            {activeProject.description.en}
+          {:else}
+            {activeProject.description.no}
+          {/if}
+        </p>
         <div class="btn-group">
           <a
             href={activeProject.websiteLink}
@@ -98,16 +114,27 @@
             rel="noreferrer noopener"
           >
             <Button theme="secondary"
-              ><i class="fa fa-solid fa-globe" />Go to site</Button
-            >
+              ><i class="fa fa-solid fa-globe" />
+              {#if currentLang === "en"}
+                Go to site
+              {:else}
+                Gå til siden
+              {/if}
+            </Button>
           </a>
 
           <a
             href="https://github.com/StianSto/stianstordal.com"
             target="_blank"
             rel="noreferrer noopener"
-            ><i class="fa fa-brands fa-github" />Project Repo</a
           >
+            <i class="fa fa-brands fa-github" />
+            {#if currentLang === "en"}
+              Project Repo
+            {:else}
+              Prosjekt Repo
+            {/if}
+          </a>
         </div>
       </div>
     </div>

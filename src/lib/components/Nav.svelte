@@ -1,5 +1,9 @@
 <script>
+  import { lang } from "../stores";
   import MenuBtn from "./MenuBtn.svelte";
+
+  let currentLang;
+  lang.subscribe((data) => (currentLang = data));
 
   let showNav = false;
 
@@ -22,27 +26,52 @@
     <ul>
       <li on:click={toggleMenu} on:keypress={toggleMenu}>
         <a href="#hero">
-          To the Top <i class="fa fa-solid fa-home" />
+          {#if currentLang === "en"}
+            To the Top
+          {:else}
+            Til Toppen
+          {/if}
+          <i class="fa fa-solid fa-home" />
         </a>
       </li>
       <li on:click={toggleMenu} on:keypress={toggleMenu}>
         <a href="#myProjects">
-          Projects <i class="fa afa-solid fa-briefcase" />
+          {#if currentLang === "en"}
+            Projects
+          {:else}
+            Prosjekter
+          {/if}
+          <i class="fa afa-solid fa-briefcase" />
         </a>
       </li>
       <li on:click={toggleMenu} on:keypress={toggleMenu}>
         <a href="#skillset">
-          Skillset <i class="fa fa-solid fa-toolbox" />
+          {#if currentLang === "en"}
+            Skillset
+          {:else}
+            Kompetanse
+          {/if}
+          <i class="fa fa-solid fa-toolbox" />
         </a>
       </li>
       <li on:click={toggleMenu} on:keypress={toggleMenu}>
         <a href="#bio">
-          About Me <i class="fa fa-solid fa-user" />
+          {#if currentLang === "en"}
+            About Me
+          {:else}
+            Om meg
+          {/if}
+          <i class="fa fa-solid fa-user" />
         </a>
       </li>
       <li on:click={toggleMenu} on:keypress={toggleMenu}>
         <a href="#contact">
-          Get in Touch <i class="fa fa-solid fa-phone-alt" />
+          {#if currentLang === "en"}
+            Get in Touch
+          {:else}
+            Ta Kontakt
+          {/if}
+          <i class="fa fa-solid fa-phone-alt" />
         </a>
       </li>
     </ul>
