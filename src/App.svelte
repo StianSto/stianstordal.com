@@ -21,13 +21,24 @@
     document.documentElement.lang = currentLang;
   }
 
-  if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-    theme.update(() => "dark");
-    document.body.classList.add("dark");
-  } else {
-    theme.update(() => "light");
-    document.body.classList.remove("dark");
-  }
+  // if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+  //   theme.update(() => "dark");
+  //   document.body.classList.add("dark");
+  // } else {
+  //   theme.update(() => "light");
+  //   document.body.classList.remove("dark");
+  // }
+
+  // let currentTheme;
+  // theme.subscribe((data) => (currentTheme = data));
+  // console.log(currentTheme);
+
+  // if (currentTheme === "dark") {
+  //   console.log(123);
+  //   document.body.classList.add("dark");
+  // } else {
+  //   document.body.classList.remove("dark");
+  // }
 </script>
 
 <header>

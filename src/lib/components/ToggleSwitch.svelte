@@ -1,6 +1,5 @@
 <script>
   export let name = "";
-  export let checked = false;
   export let size = "10px";
 
   import { theme } from "../stores";
@@ -11,8 +10,13 @@
 
   function toggleTheme() {
     theme.update(() => (isChecked ? "dark" : "light"));
-    document.body.classList.toggle("dark");
+    if (currentTheme === "dark") {
+      document.body.classList.add("dark");
+    } else {
+      document.body.classList.remove("dark");
+    }
   }
+  toggleTheme();
 </script>
 
 <label class="switch" style="font-size: {size};">
