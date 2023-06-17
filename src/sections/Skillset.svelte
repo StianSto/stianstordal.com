@@ -146,7 +146,6 @@
 
   h3 {
     font-weight: 400;
-    margin-left: 1em;
   }
 
   .container {
@@ -160,7 +159,6 @@
       gap: 3em 2em;
       list-style-type: none;
       padding: 0 1em;
-      margin-left: 1rem;
       margin-bottom: 3rem;
 
       & li {
