@@ -34,12 +34,13 @@
   <button id="langToggleBtn">
     <img
       src={currentLang === "no" ? flagNO : flagUK}
-      width="50px"
-      height="50px"
+      width="30px"
+      height="30px"
       alt=""
       on:click={toggleLang}
       on:keydown={toggleLang}
     />
+    <span>{currentLang === "no" ? "NO" : "UK"}</span>
   </button>
   <ToggleSwitch size="0.5rem" />
 </header>
