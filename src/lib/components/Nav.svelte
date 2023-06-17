@@ -104,6 +104,12 @@
     width: var(--btn-width);
     height: var(--btn-width);
     z-index: 2;
+    transition: all 200ms ease;
+
+    &:hover {
+      scale: 1.1;
+      box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.2);
+    }
   }
 
   .background {
