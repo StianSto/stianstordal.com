@@ -49,7 +49,13 @@
     </div>
   </div>
   <a class="look-down" href="#myProjects">
-    <p>Check out my projects!</p>
+    <p>
+      {#if currentLang === "en"}
+        Check out my projects!
+      {:else}
+        Sjekk ut mine prosjekter!
+      {/if}
+    </p>
     <i class="fa fa-solid fa-chevron-down" />
   </a>
 </section>

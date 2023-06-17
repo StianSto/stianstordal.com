@@ -42,10 +42,17 @@
           >
           <Button>Send Message</Button>
         {:else}
-          <input type="text" name="name" placeholder="Ditt Navn" required />
-          <input type="email" name="email" placeholder="Email" required />
-          <input type="text" name="subject" placeholder="Emne" required />
-          <textarea name="message" rows="6" placeholder="Din Melding" />
+          <InputFloating type="text" name="name" id="name">Navn</InputFloating>
+          <InputFloating type="email" name="email" id="email"
+            >Email</InputFloating
+          >
+          <InputFloating type="text" name="subject" id="subject"
+            >Emne</InputFloating
+          >
+
+          <InputFloating inputType="textArea" name="message" id="message"
+            >Melding</InputFloating
+          >
           <Button>Send Melding</Button>
         {/if}
       </form>

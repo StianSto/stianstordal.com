@@ -18,7 +18,7 @@
       <p>
         Hi! My name is Stian. I am a Front-End / aspiring Full-stack developer,
         with a passion for combining creativity and logic. I am a Norwegian
-        28-year old, and i speak scandinavian languages and english fluently.
+        28-year old, and I speak scandinavian languages and english fluently.
       </p>
       <p>
         I value teamwork and discipline above all else and I like to work with
@@ -26,7 +26,7 @@
         they do as much as i do.
       </p>
       <p>
-        As a developer i have an unquenchable thirst for knowledge and have a
+        As a developer I have an unquenchable thirst for knowledge and have a
         need for continously expanding my knowledge in my field. I like working
         with JS to try and solve logical puzzles. I am also fond of working with
         design, and the balance between learning, logical thinking and
@@ -42,12 +42,12 @@
       <p>
         Jeg verdsetter teamarbeid og disiplin fremfor alt annet og liker å jobbe
         med folk som har samme interesse for arbeidet sitt som meg, og elsker
-        hva de gjør like mye som meg.
+        hva de gjør like mye som jeg gjør.
       </p>
       <p>
-        Som utvikler har jeg en uslukkelig tørst etter kunnskap og har en behov
-        for å kontinuerlig utvide min kunnskap innen mitt felt. Jeg liker å
-        jobbe med JS for å prøve å løse logiske gåter. Jeg er også glad i å
+        Som utvikler har jeg en uslukkelig tørst for kunnskap og har en behov
+        for å kontinuerlig utvide min kunnskap innenfor mitt felt. Jeg liker å
+        jobbe med JavaScript for å prøve å løse logiske gåter. Jeg er også glad i å
         jobbe med design, og balansen mellom læring, logisk tenkning og
         kreativitet er det som holder meg gående som utvikler.
       </p>
