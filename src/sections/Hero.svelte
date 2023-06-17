@@ -48,9 +48,13 @@
       <img src={profileImg} alt="" />
     </div>
   </div>
+  <a class="look-down" href="#myProjects">
+    <p>Check out my projects!</p>
+    <i class="fa fa-solid fa-chevron-down" />
+  </a>
 </section>
 
-<style>
+<style lang="scss">
   #hero {
     height: 100vh;
     min-height: 500px;
@@ -89,8 +93,30 @@
     display: flex;
     align-items: center;
     gap: 2em;
-    & img {
-      width: clamp(5rem, 10vw, 10rem);
+  }
+
+  .look-down {
+    margin-inline: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    translate: 0 10vh;
+    text-decoration: none;
+    color: var(--clr);
+    position: absolute;
+    bottom: 10vh;
+    left: 50%;
+    translate: -50% 0%;
+
+    &:hover i {
+      animation: animateLookDown 750ms ease-in-out infinite alternate;
+    }
+  }
+
+  @keyframes animateLookDown {
+    100% {
+      translate: 0 0.5rem;
     }
   }
 </style>
