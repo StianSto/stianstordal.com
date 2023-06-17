@@ -1,5 +1,6 @@
 <script>
   import Button from "../lib/components/Button.svelte";
+  import InputFloating from "../lib/components/InputFloating.svelte";
   import { lang } from "../lib/stores";
 
   let currentLang;
@@ -28,10 +29,17 @@
     <div class="flex">
       <form action="">
         {#if currentLang === "en"}
-          <input type="text" name="name" placeholder="Name" required />
-          <input type="email" name="email" placeholder="Email" required />
-          <input type="text" name="subject" placeholder="Subject" required />
-          <textarea name="message" rows="6" placeholder="Message" />
+          <InputFloating type="text" name="name" id="name">Name</InputFloating>
+          <InputFloating type="email" name="email" id="email"
+            >Email</InputFloating
+          >
+          <InputFloating type="text" name="subject" id="subject"
+            >subject</InputFloating
+          >
+
+          <InputFloating inputType="textArea" name="message" id="message"
+            >Message</InputFloating
+          >
           <Button>Send Message</Button>
         {:else}
           <input type="text" name="name" placeholder="Ditt Navn" required />
@@ -86,15 +94,6 @@
     flex-direction: column;
     gap: 1em;
     max-width: max(500px, 50vw);
-
-    & input,
-    & textarea {
-      border-radius: 5px;
-      font-size: 1rem;
-      font-family: var(--font-family);
-      padding: 0.75em 1em;
-      border: none;
-    }
 
     & button {
       margin-top: 2rem;
