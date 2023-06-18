@@ -71,7 +71,13 @@
       </ul>
     </nav>
     <div class="btn-display">
-      <Button>Get in touch</Button>
+      <Button>
+        {#if currentLang === "en"}
+          Get in touch
+        {:else}
+          Kontakt Meg
+        {/if}
+      </Button>
     </div>
     <Nav />
   </div>
