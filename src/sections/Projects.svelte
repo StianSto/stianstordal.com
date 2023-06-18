@@ -58,9 +58,9 @@
 
     <div id="projectContainer">
       <ul id="projectsSlider">
-        <div class="indicator">
+        <!-- <div class="indicator">
           <SliderIndicator />
-        </div>
+        </div> -->
 
         {#each projectsJSON as { id, thumbnail }, index}
           <!-- svelte-ignore a11y-click-events-have-key-events -->
@@ -227,10 +227,12 @@
     display: flex;
     list-style-type: none;
     gap: 1.5vw;
-    margin: 2rem 0;
+    margin: 0;
     position: relative;
     isolation: isolate;
-    padding: 0;
+    padding: 2rem 1rem;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
 
     & li {
       aspect-ratio: 16 / 9;
@@ -241,11 +243,12 @@
       transition: all 200ms ease;
       overflow: hidden;
       min-width: min(200px, 50vw);
+      scroll-snap-align: center;
 
       & img {
         width: 100%;
         height: 100%;
-        object-fit: contain;
+        object-fit: cover;
         opacity: 0.7;
         transition: all 400ms ease;
       }
