@@ -52,10 +52,14 @@ html {
   scroll-behavior: smooth;
 }
 
-*,
-body {
+* {
   margin: 0;
+  box-sizing: border-box;
+}
+
+body {
   transition: background 200ms ease;
+  color: var(--clr);
 
   &.dark {
     /* Colors: */
@@ -69,7 +73,7 @@ body {
       linear-gradient(136deg, var(--primary) 0%, var(--primary-variant) 100%) 0%
       0% no-repeat padding-box;
 
-    color: var(--cream);
+    --clr: var(--cream);
     --clr-inverse: var(--midnight);
   }
 }
@@ -109,4 +113,12 @@ h3,
 
 img {
   display: block;
+}
+
+.clr {
+  color: var(--clr);
+
+  &-inverse {
+    color: var(--clr-inverse);
+  }
 }

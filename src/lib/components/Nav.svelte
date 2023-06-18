@@ -91,6 +91,10 @@
     top: 0;
     right: 0;
     z-index: 1000;
+
+    @media screen and (min-width: 1200px) {
+      display: none;
+    }
   }
 
   #showNavBtn {

@@ -218,7 +218,7 @@
       }
       & a {
         text-decoration: none;
-        color: var(--secondary);
+        color: var(--clr);
       }
     }
   }

@@ -48,6 +48,10 @@
             <span>JavaScript</span>
           </li>
           <li>
+            <i class="devicon-typescript-plain" />
+            <span>TypeScript</span>
+          </li>
+          <li>
             <i class="devicon-bootstrap-plain" />
             <span>Bootstrap</span>
           </li>

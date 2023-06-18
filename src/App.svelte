@@ -21,42 +21,61 @@
     document.documentElement.lang = currentLang;
   }
 
-  // if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-  //   theme.update(() => "dark");
-  //   document.body.classList.add("dark");
-  // } else {
-  //   theme.update(() => "light");
-  //   document.body.classList.remove("dark");
-  // }
-
-  // let currentTheme;
-  // theme.subscribe((data) => (currentTheme = data));
-  // console.log(currentTheme);
-
-  // if (currentTheme === "dark") {
-  //   console.log(123);
-  //   document.body.classList.add("dark");
-  // } else {
-  //   document.body.classList.remove("dark");
-  // }
+  let header;
+  let prevScrollpos = window.pageYOffset;
+  window.onscroll = function () {
+    let currentScrollPos = window.pageYOffset;
+    if (prevScrollpos > currentScrollPos) {
+      header.style.top = "0";
+    } else if (currentScrollPos > 100) {
+      header.style.top = "-100px";
+    }
+    prevScrollpos = currentScrollPos;
+  };
 </script>
 
-<header>
-  <button id="langToggleBtn">
-    <img
-      src={currentLang === "no" ? flagNO : flagUK}
-      width="30px"
-      height="30px"
-      alt=""
-      on:click={toggleLang}
-      on:keydown={toggleLang}
-    />
-    <span>{currentLang === "no" ? "NO" : "UK"}</span>
-  </button>
-  <ToggleSwitch size="0.5rem" />
-</header>
+<header bind:this={header}>
+  <div class="container">
+    <button id="langToggleBtn" on:click={toggleLang} on:keydown={toggleLang}>
+      <img
+        src={currentLang === "no" ? flagNO : flagUK}
+        width="30px"
+        height="30px"
+        alt={`flag icon of ${
+          currentLang === "no" ? "Norway" : "United Kingdom"
+        }`}
+      />
+      <span
+        class="clr"
+        aria-label={currentLang === "no" ? "norwegian" : "english"}
+        >{currentLang === "no" ? "NO" : "EN"}</span
+      >
+    </button>
+    <ToggleSwitch size="0.5rem" />
 
-<Nav />
+    <nav id="fullNav">
+      <ul>
+        <li>
+          <a href="#myProjects"
+            >{currentLang === "en" ? "Projects" : "Prosjekter"}</a
+          >
+        </li>
+        <li>
+          <a href="#skillset"
+            >{currentLang === "en" ? "Skillset" : "Kompetanse"}</a
+          >
+        </li>
+        <li>
+          <a href="#bio">{currentLang === "en" ? "About Me" : "Om Meg"}</a>
+        </li>
+      </ul>
+    </nav>
+    <div class="btn-display">
+      <Button>Get in touch</Button>
+    </div>
+    <Nav />
+  </div>
+</header>
 
 <main>
   <Hero />
@@ -69,12 +88,47 @@
 
 <style>
   header {
-    position: absolute;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    font-size: 4rem;
+    position: fixed;
+
+    font-size: var(--fs-p);
     padding: 1rem;
+    transition: all 200ms ease-in-out;
+    width: 100%;
+    background-color: var(--background);
+    z-index: 1000;
+
+    @media screen and (max-width: 1199px) {
+      position: absolute;
+
+      & .btn-display {
+        display: none;
+      }
+    }
+
+    & .container {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      max-width: 1400px;
+      margin-inline: auto;
+    }
+  }
+
+  #fullNav {
+    flex: 1;
+    & ul {
+      list-style: none;
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      & a {
+        color: var(--clr);
+        text-decoration: none;
+      }
+    }
+    @media screen and (max-width: 1199px) {
+      display: none;
+    }
   }
 
   #langToggleBtn {

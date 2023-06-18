@@ -54,6 +54,9 @@
 
     width: 80px;
     height: 40px;
+    & * {
+      box-sizing: content-box !important;
+    }
   }
   input {
     display: none;
