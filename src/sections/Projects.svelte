@@ -1,48 +1,18 @@
 <script>
   import Button from "../lib/components/Button.svelte";
-  import sliderIndicator from "../assets/sliderIndicator.svg";
-  import { onMount } from "svelte";
   import projectsJSON from "../lib/content/projects.json";
-  import SliderIndicator from "../lib/components/SliderIndicator.svelte";
   import { lang } from "../lib/stores";
-
-  let activeProject = projectsJSON[0];
+  import { fade } from "svelte/transition";
 
   let currentLang;
   lang.subscribe((data) => (currentLang = data));
 
-  function viewProject(e) {
-    const projectsSlider = document.querySelector("#projectsSlider");
-    const projectItems = projectsSlider.querySelectorAll("li");
-    const clickedItem = e.currentTarget;
+  let activeProject = projectsJSON[0];
 
-    projectItems.forEach((item) => item.classList.remove("active"));
-    clickedItem.classList.add("active");
-
-    activeProject = projectsJSON.find(
-      (project) => project.id === clickedItem.dataset.project
-    );
-
-    // execute slide indicator and slide indicator on window resize
-    slideIndicator(projectsSlider, clickedItem);
-    window.onresize = () => slideIndicator(projectsSlider, clickedItem);
+  let selectedIndex = 0;
+  function selectProject(index) {
+    selectedIndex = index;
   }
-
-  function slideIndicator(parent, child) {
-    const parentRect = parent.getBoundingClientRect();
-    const childRect = child.getBoundingClientRect();
-    const slideTo = childRect.x - parentRect.x;
-
-    const indicator = document.querySelector(".indicator");
-    // @ts-ignore
-    indicator.style.translate = `${slideTo}px 0`;
-  }
-
-  onMount(() => {
-    const projectsSlider = document.querySelector("#projectsSlider");
-    const projectItem = projectsSlider.querySelector("li.active");
-    slideIndicator(projectsSlider, projectItem);
-  });
 </script>
 
 <!-- output -->
@@ -58,16 +28,12 @@
 
     <div id="projectContainer">
       <ul id="projectsSlider">
-        <!-- <div class="indicator">
-          <SliderIndicator />
-        </div> -->
-
         {#each projectsJSON as { id, thumbnail }, index}
-          <!-- svelte-ignore a11y-click-events-have-key-events -->
           <li
             class:active={index === 0}
             data-project={id}
-            on:click={(e) => viewProject(e)}
+            on:click={(e) => selectProject(index)}
+            on:keypress={(e) => selectProject(index)}
           >
             <img
               src={thumbnail.w1600}
@@ -81,61 +47,68 @@
 
       <div id="projectsMonitor">
         <div id="projectsMonitorPc">
-          <img
-            srcset={`${activeProject.imageDesktop.w1600} 1600w, ${activeProject.imageDesktop.w800} 800w`}
-            src={activeProject.imageDesktop.w1600}
-            alt=""
-            loading="lazy"
-          />
+          {#key selectedIndex}
+            <img
+              transition:fade
+              srcset={`${projectsJSON[selectedIndex].imageDesktop.w1600} 1600w, ${projectsJSON[selectedIndex].imageDesktop.w800} 800w`}
+              src={projectsJSON[selectedIndex].imageDesktop.w1600}
+              alt=""
+            />
+          {/key}
         </div>
+
         <div id="projectsMonitorMobile">
-          <img
-            src={activeProject.imageMobile.w1600}
-            srcset={`${activeProject.imageMobile.w1600} 1600w, ${activeProject.imageMobile.w800} 800w`}
-            alt=""
-            loading="lazy"
-          />
+          {#key selectedIndex}
+            <img
+              transition:fade
+              srcset={`${projectsJSON[selectedIndex].imageMobile.w1600} 1600w, ${projectsJSON[selectedIndex].imageMobile.w800} 800w`}
+              src={projectsJSON[selectedIndex].imageMobile.w1600}
+              alt=""
+            />
+          {/key}
         </div>
       </div>
 
       <div id="projectsBody">
-        <h3>{activeProject.title}</h3>
-        <p class="description">
-          {#if currentLang === "en"}
-            {activeProject.description.en}
-          {:else}
-            {activeProject.description.no}
-          {/if}
-        </p>
-        <div class="btn-group">
-          <a
-            href={activeProject.websiteLink}
-            target="_blank"
-            rel="noreferrer noopener"
-          >
-            <Button theme="secondary"
-              ><i class="fa fa-solid fa-globe" />
-              {#if currentLang === "en"}
-                Go to site
-              {:else}
-                Gå til siden
-              {/if}
-            </Button>
-          </a>
-
-          <a
-            href="https://github.com/StianSto/stianstordal.com"
-            target="_blank"
-            rel="noreferrer noopener"
-          >
-            <i class="fa fa-brands fa-github" />
+        {#key selectedIndex}
+          <h3>{projectsJSON[selectedIndex].title}</h3>
+          <p class="description">
             {#if currentLang === "en"}
-              Project Repo
+              {projectsJSON[selectedIndex].description.en}
             {:else}
-              Prosjekt Repo
+              {projectsJSON[selectedIndex].description.no}
             {/if}
-          </a>
-        </div>
+          </p>
+          <div class="btn-group">
+            <a
+              href={projectsJSON[selectedIndex].websiteLink}
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              <Button theme="secondary"
+                ><i class="fa fa-solid fa-globe" />
+                {#if currentLang === "en"}
+                  Go to site
+                {:else}
+                  Gå til siden
+                {/if}
+              </Button>
+            </a>
+
+            <a
+              href={projectsJSON[selectedIndex].repoLink}
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              <i class="fa fa-brands fa-github" />
+              {#if currentLang === "en"}
+                Project Repo
+              {:else}
+                Prosjekt Repo
+              {/if}
+            </a>
+          </div>
+        {/key}
       </div>
     </div>
   </div>
@@ -177,6 +150,7 @@
         height: 100%;
         object-fit: cover;
         object-position: top;
+        position: absolute;
       }
     }
 
@@ -261,15 +235,6 @@
           scale: 1.1;
         }
       }
-    }
-
-    & .indicator {
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: 100%;
-      transition: translate 300ms ease-in-out;
-      z-index: -1;
     }
   }
 </style>
