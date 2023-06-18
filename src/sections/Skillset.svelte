@@ -48,6 +48,10 @@
             <span>JavaScript</span>
           </li>
           <li>
+            <i class="devicon-typescript-plain" />
+            <span>TypeScript</span>
+          </li>
+          <li>
             <i class="devicon-bootstrap-plain" />
             <span>Bootstrap</span>
           </li>
@@ -146,7 +150,6 @@
 
   h3 {
     font-weight: 400;
-    margin-left: 1em;
   }
 
   .container {
@@ -160,7 +163,6 @@
       gap: 3em 2em;
       list-style-type: none;
       padding: 0 1em;
-      margin-left: 1rem;
       margin-bottom: 3rem;
 
       & li {

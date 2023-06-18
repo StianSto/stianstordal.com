@@ -91,6 +91,10 @@
     top: 0;
     right: 0;
     z-index: 1000;
+
+    @media screen and (min-width: 1200px) {
+      display: none;
+    }
   }
 
   #showNavBtn {
@@ -104,6 +108,12 @@
     width: var(--btn-width);
     height: var(--btn-width);
     z-index: 2;
+    transition: all 200ms ease;
+
+    &:hover {
+      scale: 1.1;
+      box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.2);
+    }
   }
 
   .background {

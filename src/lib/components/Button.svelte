@@ -22,7 +22,7 @@
     }
     &.secondary {
       background-color: var(--secondary);
-      color: var(--clr-inverse);
+      color: var(--clr-inverse) !important;
 
       &:focus,
       &:focus-visible {
