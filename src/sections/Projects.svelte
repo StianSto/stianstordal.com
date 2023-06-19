@@ -32,8 +32,8 @@
           <li
             class:active={index === 0}
             data-project={id}
-            on:click={(e) => selectProject(index)}
-            on:keypress={(e) => selectProject(index)}
+            on:click={() => selectProject(index)}
+            on:keypress={() => selectProject(index)}
           >
             <img
               src={thumbnail.w1600}
@@ -204,9 +204,15 @@
     margin: 0;
     position: relative;
     isolation: isolate;
-    padding: 2rem 1rem;
+    padding: 2rem 1rem 1rem;
+    margin-bottom: 1rem;
     overflow-x: scroll;
     scroll-snap-type: x mandatory;
+
+    /* width */
+    &::-webkit-scrollbar {
+      display: none;
+    }
 
     & li {
       aspect-ratio: 16 / 9;
