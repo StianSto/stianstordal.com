@@ -48,16 +48,6 @@
       <img src={profileImg} alt="" />
     </div>
   </div>
-  <a class="look-down" href="#myProjects">
-    <p>
-      {#if currentLang === "en"}
-        Check out my projects!
-      {:else}
-        Sjekk ut mine prosjekter!
-      {/if}
-    </p>
-    <i class="fa fa-solid fa-chevron-down" />
-  </a>
 </section>
 
 <style lang="scss">
