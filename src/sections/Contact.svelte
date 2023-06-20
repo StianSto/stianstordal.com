@@ -27,7 +27,7 @@
       {/if}
     </h2>
     <div class="flex">
-      <form action="">
+      <form name="contact" method="POST" data-netlify="true">
         {#if currentLang === "en"}
           <InputFloating type="text" name="name" id="name">Name</InputFloating>
           <InputFloating type="email" name="email" id="email"
