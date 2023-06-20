@@ -9,7 +9,6 @@
   import Contact from "./sections/Contact.svelte";
   import flagNO from "./assets/lang-no.png";
   import flagUK from "./assets/lang-uk.png";
-
   import { lang, theme } from "./lib/stores";
   import HeroDivider from "./lib/components/dividers/HeroDivider.svelte";
   import Nav from "./lib/components/Nav.svelte";
@@ -71,7 +70,7 @@
       </ul>
     </nav>
     <div class="btn-display">
-      <Button>
+      <Button on:click={() => (window.location.href = "#contact")}>
         {#if currentLang === "en"}
           Get in touch
         {:else}
@@ -98,7 +97,7 @@
 
     font-size: var(--fs-p);
     padding: 1rem 0;
-    transition: all 200ms ease-in-out;
+    transition: all 200ms ease-in-out, background 200ms ease;
     width: 100%;
     background-color: var(--background);
     z-index: 1000;
@@ -146,7 +145,5 @@
 
   main {
     margin-inline: auto;
-
-    background: var(--background);
   }
 </style>

@@ -58,6 +58,7 @@ html {
 }
 
 body {
+  background: var(--background);
   transition: background 200ms ease;
   color: var(--clr);
 

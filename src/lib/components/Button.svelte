@@ -2,7 +2,7 @@
   export let theme = "primary";
 </script>
 
-<button class="btn {theme}"><slot /></button>
+<button class="btn {theme}" on:click><slot /></button>
 
 <style>
   .btn {
