@@ -48,16 +48,6 @@
       <img src={profileImg} alt="" />
     </div>
   </div>
-  <a class="look-down" href="#myProjects">
-    <p>
-      {#if currentLang === "en"}
-        Check out my projects!
-      {:else}
-        Sjekk ut mine prosjekter!
-      {/if}
-    </p>
-    <i class="fa fa-solid fa-chevron-down" />
-  </a>
 </section>
 
 <style lang="scss">
@@ -99,25 +89,6 @@
     display: flex;
     align-items: center;
     gap: 2em;
-  }
-
-  .look-down {
-    margin-inline: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-    translate: 0 10vh;
-    text-decoration: none;
-    color: var(--clr);
-    position: absolute;
-    bottom: 10vh;
-    left: 50%;
-    translate: -50% 0%;
-
-    &:hover i {
-      animation: animateLookDown 750ms ease-in-out infinite alternate;
-    }
   }
 
   @keyframes animateLookDown {

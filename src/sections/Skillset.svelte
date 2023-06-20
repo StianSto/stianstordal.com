@@ -135,7 +135,7 @@
   </svg>
 </section>
 
-<style>
+<style lang="scss">
   #skillset {
     min-height: 500px;
     background-color: var(--primary);
@@ -150,6 +150,7 @@
 
   h3 {
     font-weight: 400;
+    margin-bottom: 0.5em;
   }
 
   .container {
@@ -162,30 +163,39 @@
       grid-template-columns: repeat(auto-fit, var(--fs-icons));
       gap: 3em 2em;
       list-style-type: none;
-      padding: 0 1em;
+      padding: 0;
       margin-bottom: 3rem;
+
+      @for $i from 3 through 10 {
+        @media screen and (min-width: calc($i * 100px)) {
+          grid-template-columns: repeat(#{$i}, 1fr);
+        }
+      }
 
       & li {
         position: relative;
         font-size: var(--fs-icons);
         margin-block: auto;
         height: 1em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
 
         & span {
-          width: 100%;
+          width: fit-content;
           text-align: center;
           position: absolute;
           font-size: 1rem;
           bottom: 0;
-          left: 0;
-          translate: 0% 100%;
+          left: 50%;
+          translate: -50% 150%;
           opacity: 0;
           transition: all 250ms ease-in-out;
         }
 
         &:hover {
           & span {
-            translate: 0% 150%;
+            translate: -50% 100%;
             opacity: 1;
           }
         }
@@ -194,7 +204,6 @@
       & .no-icon {
         & .cypress {
           width: var(--fs-icons);
-          margin-bottom: 8px;
         }
       }
     }

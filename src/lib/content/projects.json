@@ -74,31 +74,5 @@
     },
     "websiteLink": "https://csm.stianstordal.com",
     "repoLink": "https://github.com/StianSto/Community-Science-Museum__Stian-Stordal"
-  },
-  {
-    "id": "project4",
-    "title": "Project 4",
-    "description": {
-      "no": "Mauris ultrices eros in cursus turpis massa tincidunt dui. Convallis a cras semper auctor neque. Mauris pellentesque pulvinar pellentesque habitant morbi tristique senectus. Eget est lorem ipsum dolor sit amet consectetur. Sed arcu non odio euismod lacinia. Nulla porttitor ",
-      "en": "Mauris ultrices eros in cursus turpis massa tincidunt dui. Convallis a cras semper auctor neque. Mauris pellentesque pulvinar pellentesque habitant morbi tristique senectus. Eget est lorem ipsum dolor sit amet consectetur. Sed arcu non odio euismod lacinia. Nulla porttitor "
-    },
-    "thumbnail": {
-      "original": "https://s3-alpha.figma.com/hub/file/1913095808/a7bdc469-cd70-4ea1-bb57-b59204ad8182-cover.png",
-      "w1600": "https://s3-alpha.figma.com/hub/file/1913095808/a7bdc469-cd70-4ea1-bb57-b59204ad8182-cover.png",
-      "w800": "https://s3-alpha.figma.com/hub/file/1913095808/a7bdc469-cd70-4ea1-bb57-b59204ad8182-cover.png"
-    },
-
-    "imageDesktop": {
-      "original": "/projects/thedailybrew/desktop.jpg",
-      "w1600": "/projects/thedailybrew/desktop-1600w.jpg",
-      "w800": "/projects/thedailybrew/desktop-800w.jpg"
-    },
-    "imageMobile": {
-      "original": "/projects/thedailybrew/phone.jpg",
-      "w1600": "/projects/thedailybrew/phone-1600w.jpg",
-      "w800": "/projects/thedailybrew/phone-800w.jpg"
-    },
-    "websiteLink": "https://www.example.com/project4",
-    "repoLink": "https://github.com/Noroff-FEU-Assignments/project-exam-1-StianSto"
   }
 ]

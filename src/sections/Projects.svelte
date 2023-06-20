@@ -124,7 +124,7 @@
     margin-block: 1rem;
   }
   h2 {
-    margin-block: 4rem;
+    margin-top: 4rem;
   }
 
   h3 {
@@ -223,6 +223,7 @@
       transition: all 200ms ease;
       overflow: hidden;
       min-width: min(200px, 50vw);
+      max-width: 250px;
       scroll-snap-align: center;
 
       & img {
