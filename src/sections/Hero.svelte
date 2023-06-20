@@ -91,25 +91,6 @@
     gap: 2em;
   }
 
-  .look-down {
-    margin-inline: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-    translate: 0 10vh;
-    text-decoration: none;
-    color: var(--clr);
-    position: absolute;
-    bottom: 10vh;
-    left: 50%;
-    translate: -50% 0%;
-
-    &:hover i {
-      animation: animateLookDown 750ms ease-in-out infinite alternate;
-    }
-  }
-
   @keyframes animateLookDown {
     100% {
       translate: 0 0.5rem;

@@ -97,7 +97,7 @@
     position: fixed;
 
     font-size: var(--fs-p);
-    padding: 1rem;
+    padding: 1rem 0;
     transition: all 200ms ease-in-out;
     width: 100%;
     background-color: var(--background);

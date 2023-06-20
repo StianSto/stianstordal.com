@@ -124,7 +124,7 @@
     margin-block: 1rem;
   }
   h2 {
-    margin-block: 4rem;
+    margin-top: 4rem;
   }
 
   h3 {
