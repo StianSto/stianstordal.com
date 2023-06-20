@@ -201,7 +201,6 @@
     display: flex;
     list-style-type: none;
     gap: 1.5vw;
-    margin: 0;
     position: relative;
     isolation: isolate;
     padding: 2rem 1rem 1rem;
@@ -225,6 +224,13 @@
       min-width: min(200px, 50vw);
       max-width: 250px;
       scroll-snap-align: center;
+
+      &:first-child {
+        margin-left: auto;
+      }
+      &:last-child {
+        margin-right: auto;
+      }
 
       & img {
         width: 100%;
