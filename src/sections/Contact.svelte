@@ -1,10 +1,67 @@
 <script>
   import Button from "../lib/components/Button.svelte";
   import InputFloating from "../lib/components/InputFloating.svelte";
+  import Snackbar from "../lib/components/Snackbar.svelte";
   import { lang } from "../lib/stores";
+  import emailjs from "@emailjs/browser";
 
   let currentLang;
   lang.subscribe((data) => (currentLang = data));
+
+  (() => {
+    emailjs.init(import.meta.env.VITE_PUBLIC_KEY);
+  })();
+
+  let snackbarMessages = [];
+  function handleSubmit(e) {
+    let emailError = false;
+    let emailSuccess = false;
+    let msg = "";
+
+    const submitBtn = e.target.querySelector("button");
+    submitBtn.disabled = true;
+
+    const formData = new FormData(e.target);
+    const data = Object.fromEntries(formData);
+
+    emailjs
+      .send(
+        import.meta.env.VITE_SERVICE_ID,
+        import.meta.env.VITE_TEMPLATE_ID,
+        data
+      )
+      .then(
+        function (response) {
+          console.log("SUCCESS!", response.status, response.text);
+          emailSuccess = true;
+          msg =
+            "Message Sent! Thank you for your message, i will be in touch shortly :)";
+          giveResponseToUser();
+          submitBtn.disabled = false;
+        },
+        function (error) {
+          console.log("FAILED...", error);
+          msg = "Ooops, seems there was an error while sending the message :(";
+          emailError = true;
+          giveResponseToUser();
+          submitBtn.disabled = false;
+        }
+      );
+
+    function giveResponseToUser() {
+      const id = Math.floor(Math.random() * 999);
+      snackbarMessages = [
+        ...snackbarMessages,
+        { msg, id, emailError, emailSuccess },
+      ];
+    }
+  }
+
+  function removeSnackbar(e) {
+    snackbarMessages = snackbarMessages.filter((arr) => {
+      arr.id !== e.detail.id;
+    });
+  }
 </script>
 
 <section id="contact">
@@ -15,6 +72,7 @@
       d="M6,4003.829H1926.484v147.947C1076.921,4179.408,709.212,4143.032,6,4036.208Z"
       transform="translate(-6 -4003.829)"
       fill="var(--background)"
+      style="transition: fill 200ms ease"
     />
   </svg>
 
@@ -27,9 +85,11 @@
       {/if}
     </h2>
     <div class="flex">
-      <form name="contact" method="POST" data-netlify="true">
+      <form on:submit|preventDefault={handleSubmit}>
         {#if currentLang === "en"}
-          <InputFloating type="text" name="name" id="name">Name</InputFloating>
+          <InputFloating type="text" name="name" id="name" required
+            >Name</InputFloating
+          >
           <InputFloating type="email" name="email" id="email"
             >Email</InputFloating
           >
@@ -56,6 +116,7 @@
           <Button>Send Melding</Button>
         {/if}
       </form>
+
       <div class="contact-info">
         <div>
           <i class="fa fa-solid fa-envelope" />
@@ -70,6 +131,16 @@
   </div>
 </section>
 
+{#each snackbarMessages as snack (snack.id)}
+  <Snackbar
+    message={snack}
+    success={snack.emailSuccess}
+    error={snack.emailError}
+    visible={true}
+    on:change={removeSnackbar}
+  />
+{/each}
+
 <style>
   section {
     background-color: var(--charcoal);
@@ -82,7 +153,7 @@
 
   h2 {
     font-weight: 500;
-    margin-bottom: 4rem;
+    margin-bottom: 2rem;
   }
 
   .flex {

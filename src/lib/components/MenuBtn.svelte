@@ -1,6 +1,5 @@
 <script>
   export let active;
-  console.log(active);
 </script>
 
 <svg class="ham hamRotate" viewBox="0 0 120 120" class:active>
