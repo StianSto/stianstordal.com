@@ -3,13 +3,21 @@
   export let name = "";
   export let id;
   export let inputType = "input";
+  export let required = false;
 </script>
 
 <div>
   {#if inputType === "textArea"}
-    <textarea class="form-input" {name} {id} rows="5" placeholder=" " />
+    <textarea
+      {name}
+      {id}
+      {required}
+      class="form-input"
+      rows="5"
+      placeholder=" "
+    />
   {:else}
-    <input class="form-input" {type} {name} {id} placeholder=" " />
+    <input class="form-input" {type} {name} {id} placeholder=" " {required} />
   {/if}
 
   <label for={id} class="floating-input"><slot /></label>
