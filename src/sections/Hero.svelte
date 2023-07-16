@@ -126,21 +126,6 @@
         top: 50%;
         translate: 0 -50%;
         z-index: -1;
-
-        &:has(.variant) {
-          animation: rotate 80s linear infinite reverse;
-        }
-        &:has(.primary) {
-          animation: rotate 50s linear infinite;
-        }
-        @media screen and (prefers-reduced-motion) {
-          animation: none;
-        }
-        @keyframes rotate {
-          100% {
-            rotate: 360deg;
-          }
-        }
       }
     }
   }
@@ -164,11 +149,5 @@
     display: flex;
     align-items: center;
     gap: 2em;
-  }
-
-  @keyframes animateLookDown {
-    100% {
-      translate: 0 0.5rem;
-    }
   }
 </style>
