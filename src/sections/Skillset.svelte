@@ -166,7 +166,7 @@
       padding: 0;
       margin-bottom: 3rem;
 
-      @for $i from 3 through 10 {
+      @for $i from 3 through 8 {
         @media screen and (min-width: calc($i * 100px)) {
           grid-template-columns: repeat(#{$i}, 1fr);
         }
