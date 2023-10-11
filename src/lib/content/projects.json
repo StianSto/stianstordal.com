@@ -55,7 +55,7 @@
     "id": "theDailyBrew",
     "title": "The Daily Brew",
     "description": {
-      "no": "The Daily Brew er en blogg for kaffeelskere og -entusiaster. Denne nettsiden ble laget som mitt eksamensprosjekt under mitt første år på Noroff. Å lage dette nettstedet utfordret meg til å utforske JavaScript verdenen mer enn noen gang før. Oppdatering: backenden for denne siden er tatt ned så den er ikke brukelig, men du er velkommen til å sjekek ut prosjektet :)",
+      "no": "The Daily Brew er en blogg for kaffeelskere og -entusiaster. Denne nettsiden ble laget som mitt eksamensprosjekt under mitt første år på Noroff. Å lage dette nettstedet utfordret meg til å utforske JavaScript verdenen mer enn noen gang før. Oppdatering: backenden for denne siden er tatt ned så den er ikke brukelig, men du er velkommen til å sjekke ut prosjektet :)",
       "en": "The Daily Brew is a blog for coffee lovers and -enthusiasts. This website was made as my exam project during my first year at Noroff. making the website challenged me to explore the world of JS more than ever before. Update: the backend for this site is down, but you are welcome to take a look at the project regardless :)"
     },
     "thumbnail": {
