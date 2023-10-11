@@ -26,11 +26,37 @@
     "repoLink": "https://github.com/StianSto/BarterHouse"
   },
   {
+    "id": "mollify",
+    "title": "Mollify",
+    "description": {
+      "no": "Mollify-prosjektet er en pakke som består av en LMS-pakke (frontenden for Mollify), CLI, Molly (Mollifys personlige AI-assistent), TTS (tekst-til-tale), Flow (en redaktør for å lage og redigere leksjonsinnhold) og Mollify-typer for enkel import av typer. Jeg har jobbet med dette prosjektet siden eksamen min i Frontend Development-programmet på Noroff. Min rolle i dette har vært variert, fra å jobbe med backend med Molly, AI-assistenten, lage remark-plugins, og annet på front end",
+      "en": "The Mollify project is a package consisting of an LMS package (the front end for mollify), CLI, Molly (mollify's personal AI assistant), TTS (text-to-speech), Flow (an editor for creating and editing lesson content) and mollfy types for easy type imports. I have worked on this project since my exam at Front End Development program in noroff. My role in this has been varied, from working on backend with Molly the Ai assistant, creating remark plugins, and other front end tasks"
+    },
+
+    "thumbnail": {
+      "original": "/projects/mollify/mollify-thumbnail.png",
+      "w1600": "/projects/mollify/mollify-thumbnail.png",
+      "w800": ""
+    },
+    "imageDesktop": {
+      "original": "/projects/mollify/mollify-desktop.png",
+      "w1600": "/projects/mollify/mollify-desktop-1600w.png",
+      "w800": ""
+    },
+    "imageMobile": {
+      "original": "/projects/mollify/mollify-phone.png",
+      "w1600": "/projects/mollify/mollify-phone-1600w.png",
+      "w800": ""
+    },
+    "websiteLink": "https://mollify.noroff.dev",
+    "repoLink": "https://github.com/Fermain/-mollify"
+  },
+  {
     "id": "theDailyBrew",
     "title": "The Daily Brew",
     "description": {
-      "no": "The Daily Brew er en blogg for kaffeelskere og -entusiaster. Denne nettsiden ble laget som mitt eksamensprosjekt under mitt første år på Noroff. Å lage dette nettstedet utfordret meg til å utforske JavaScript verdenen mer enn noen gang før.",
-      "en": "The Daily Brew is a blog for coffee lovers and -enthusiasts. This website was made as my exam project during my first year at Noroff. making the website challenged me to explore the world of JS more than ever before."
+      "no": "The Daily Brew er en blogg for kaffeelskere og -entusiaster. Denne nettsiden ble laget som mitt eksamensprosjekt under mitt første år på Noroff. Å lage dette nettstedet utfordret meg til å utforske JavaScript verdenen mer enn noen gang før. Oppdatering: backenden for denne siden er tatt ned så den er ikke brukelig, men du er velkommen til å sjekek ut prosjektet :)",
+      "en": "The Daily Brew is a blog for coffee lovers and -enthusiasts. This website was made as my exam project during my first year at Noroff. making the website challenged me to explore the world of JS more than ever before. Update: the backend for this site is down, but you are welcome to take a look at the project regardless :)"
     },
     "thumbnail": {
       "original": "/projects/thedailybrew/logo.png",
@@ -74,5 +100,30 @@
     },
     "websiteLink": "https://csm.stianstordal.com",
     "repoLink": "https://github.com/StianSto/Community-Science-Museum__Stian-Stordal"
+  },
+  {
+    "id": "online shop",
+    "title": "Online Shop",
+    "description": {
+      "no": "Online Shop er et veldig enkelt prosjekt, men også en viktig milepæl i min karriere. Dette var mitt første ordentlige møte med React og TypeScript. Den bruker Noroffs Online Shop api. Dette var også første gangen jeg bestemte meg for en spesifikk design stil på forhånd",
+      "en": "Online Shop is a very simple project, but also an important milestone in my career. This was my first real encounter with React and TypeScript. It uses Noroff's Online Shop API. It is also the first time I decided to go for a specific art style"
+    },
+    "thumbnail": {
+      "original": "/projects/onlineShop/online-shop-thumbnail.png",
+      "w1600": "/projects/onlineShop/online-shop-thumbnail.png",
+      "w800": ""
+    },
+    "imageDesktop": {
+      "original": "/projects/onlineShop/online-shop-desktop.png",
+      "w1600": "/projects/onlineShop/online-shop-desktop-1600w.png",
+      "w800": ""
+    },
+    "imageMobile": {
+      "original": "/projects/onlineShop/online-shop-phone.png",
+      "w1600": "/projects/onlineShop/online-shop-phone-1600w.png",
+      "w800": ""
+    },
+    "websiteLink": "https://incredible-marshmallow-544450.netlify.app/",
+    "repoLink": "https://github.com/StianSto/frontend-frameworks-ca"
   }
 ]
