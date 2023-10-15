@@ -36,17 +36,17 @@
     "thumbnail": {
       "original": "/projects/mollify/mollify-thumbnail.png",
       "w1600": "/projects/mollify/mollify-thumbnail.png",
-      "w800": ""
+      "w800": "/projects/mollify/mollify-thumbnail.png"
     },
     "imageDesktop": {
       "original": "/projects/mollify/mollify-desktop.png",
       "w1600": "/projects/mollify/mollify-desktop-1600w.png",
-      "w800": ""
+      "w800": "/projects/mollify/mollify-desktop-1600w.png"
     },
     "imageMobile": {
       "original": "/projects/mollify/mollify-phone.png",
       "w1600": "/projects/mollify/mollify-phone-1600w.png",
-      "w800": ""
+      "w800": "/projects/mollify/mollify-phone-1600w.png"
     },
     "websiteLink": "https://mollify.noroff.dev",
     "repoLink": "https://github.com/Fermain/-mollify"
@@ -116,12 +116,12 @@
     "imageDesktop": {
       "original": "/projects/onlineShop/online-shop-desktop.png",
       "w1600": "/projects/onlineShop/online-shop-desktop-1600w.png",
-      "w800": ""
+      "w800": "/projects/onlineShop/online-shop-desktop-1600w.png"
     },
     "imageMobile": {
       "original": "/projects/onlineShop/online-shop-phone.png",
       "w1600": "/projects/onlineShop/online-shop-phone-1600w.png",
-      "w800": ""
+      "w800": "/projects/onlineShop/online-shop-phone-1600w.png"
     },
     "websiteLink": "https://incredible-marshmallow-544450.netlify.app/",
     "repoLink": "https://github.com/StianSto/frontend-frameworks-ca"
