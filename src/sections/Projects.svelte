@@ -69,7 +69,7 @@
       </ul>
 
       <div id="projectsMonitor">
-        <div id="projectsMonitorPc">
+        <div id="projectsMonitorPc" class:visible>
           {#key selectedIndex}
             <img
               transition:fade
@@ -80,7 +80,7 @@
           {/key}
         </div>
 
-        <div id="projectsMonitorMobile">
+        <div id="projectsMonitorMobile" class:visible>
           {#key selectedIndex}
             <img
               transition:fade
@@ -181,7 +181,15 @@
       width: 100%;
       aspect-ratio: 16 / 9;
       transform-origin: left;
-      transform: perspective(1000px) rotate3d(0, 1, 0, 12deg);
+      transform: translateX(15%);
+      opacity: 0;
+
+      transition: transform 500ms ease, opacity 500ms ease;
+
+      &.visible {
+        opacity: 1;
+        transform: perspective(1000px) rotate3d(0, 1, 0, 12deg) translateX(0);
+      }
     }
 
     &Mobile {
@@ -191,7 +199,15 @@
       right: 0;
       top: 0px;
       transform-origin: left;
-      transform: perspective(500px) rotate3d(0, 1, 0, 3deg);
+      opacity: 0;
+
+      transform: translateX(30%);
+      transition: transform 500ms ease, opacity 500ms ease;
+
+      &.visible {
+        opacity: 1;
+        transform: perspective(500px) rotate3d(0, 1, 0, 3deg) translate(0);
+      }
     }
   }
 
