@@ -3,17 +3,21 @@
   import Button from "../lib/components/Button.svelte";
   import projectsJSON from "../lib/content/projects.json";
   import { lang } from "../lib/stores";
-  import { fade, fly } from "svelte/transition";
+
+  import { fly } from "svelte/transition";
+
 
   let currentLang;
   lang.subscribe((data) => (currentLang = data));
 
-  let activeProject = projectsJSON[0];
+  let selectedProject = 0;
 
-  let selectedIndex = 0;
   function selectProject(index) {
-    selectedIndex = index;
+    selectedProject = index;
   }
+
+
+  let ready = false;
 
   let visible = false;
   let element;
@@ -25,8 +29,15 @@
       visible = true;
     }
   }
+
+
   onMount(() => {
     window.addEventListener("scroll", handleScroll);
+    ready = true;
+    setTimeout(() => {
+      handleScroll();
+    }, 250);
+
   });
 
   onDestroy(() => {
@@ -68,71 +79,74 @@
         {/key}
       </ul>
 
-      <div id="projectsMonitor">
-        <div id="projectsMonitorPc" class:visible>
-          {#key selectedIndex}
-            <img
-              transition:fade
-              srcset={`${projectsJSON[selectedIndex].imageDesktop.w1600} 1600w, ${projectsJSON[selectedIndex].imageDesktop.w800} 800w`}
-              src={projectsJSON[selectedIndex].imageDesktop.w1600}
-              alt=""
-            />
-          {/key}
-        </div>
 
-        <div id="projectsMonitorMobile" class:visible>
-          {#key selectedIndex}
-            <img
-              transition:fade
-              srcset={`${projectsJSON[selectedIndex].imageMobile.w1600} 1600w, ${projectsJSON[selectedIndex].imageMobile.w800} 800w`}
-              src={projectsJSON[selectedIndex].imageMobile.w1600}
-              alt=""
-            />
-          {/key}
-        </div>
-      </div>
-
-      <div id="projectsBody">
-        {#key selectedIndex}
-          <h3>{projectsJSON[selectedIndex].title}</h3>
-          <p class="description">
-            {#if currentLang === "en"}
-              {projectsJSON[selectedIndex].description.en}
-            {:else}
-              {projectsJSON[selectedIndex].description.no}
-            {/if}
-          </p>
-          <div class="btn-group">
-            <a
-              href={projectsJSON[selectedIndex].websiteLink}
-              target="_blank"
-              rel="noreferrer noopener"
-            >
-              <Button theme="secondary"
-                ><i class="fa fa-solid fa-globe" />
-                {#if currentLang === "en"}
-                  Go to site
-                {:else}
-                  Gå til siden
-                {/if}
-              </Button>
-            </a>
-
-            <a
-              href={projectsJSON[selectedIndex].repoLink}
-              target="_blank"
-              rel="noreferrer noopener"
-            >
-              <i class="fa fa-brands fa-github" />
-              {#if currentLang === "en"}
-                Project Repo
-              {:else}
-                Prosjekt Repo
-              {/if}
-            </a>
+      {#if ready}
+        <!-- content here -->
+        <div id="projectsMonitor">
+          <div id="projectsMonitorPc" class:visible>
+            {#each projectsJSON as { imageDesktop }, index}
+              <img
+                srcset={`${imageDesktop.w1600} 1600w, ${imageDesktop.w800} 800w`}
+                class:active={selectedProject === index}
+                alt=""
+              />
+            {/each}
           </div>
-        {/key}
-      </div>
+
+          <div id="projectsMonitorMobile" class:visible>
+            {#each projectsJSON as { imageMobile }, index}
+              <img
+                srcset={`${imageMobile.w1600} 1600w, ${imageMobile.w800} 800w`}
+                class:active={selectedProject === index}
+                alt=""
+              />
+            {/each}
+          </div>
+
+        </div>
+
+        <div id="projectsBody">
+          {#key selectedProject}
+            <h3>{projectsJSON[selectedProject].title}</h3>
+            <p class="description">
+              {#if currentLang === "en"}
+                {projectsJSON[selectedProject].description.en}
+              {:else}
+                {projectsJSON[selectedProject].description.no}
+              {/if}
+            </p>
+            <div class="btn-group">
+              <a
+                href={projectsJSON[selectedProject].websiteLink}
+                target="_blank"
+                rel="noreferrer noopener"
+              >
+                <Button theme="secondary"
+                  ><i class="fa fa-solid fa-globe" />
+                  {#if currentLang === "en"}
+                    Go to site
+                  {:else}
+                    Gå til siden
+                  {/if}
+                </Button>
+              </a>
+
+              <a
+                href={projectsJSON[selectedProject].repoLink}
+                target="_blank"
+                rel="noreferrer noopener"
+              >
+                <i class="fa fa-brands fa-github" />
+                {#if currentLang === "en"}
+                  Project Repo
+                {:else}
+                  Prosjekt Repo
+                {/if}
+              </a>
+            </div>
+          {/key}
+        </div>
+      {/if}
     </div>
   </div>
 </section>
@@ -174,6 +188,13 @@
         object-fit: cover;
         object-position: top;
         position: absolute;
+
+        opacity: 0;
+        transition: opacity 300ms linear;
+
+        &.active {
+          opacity: 1;
+        }
       }
     }
 
@@ -184,7 +205,11 @@
       transform: translateX(15%);
       opacity: 0;
 
-      transition: transform 500ms ease, opacity 500ms ease;
+
+      transition:
+        transform 500ms ease,
+        opacity 500ms ease;
+
 
       &.visible {
         opacity: 1;
@@ -202,7 +227,11 @@
       opacity: 0;
 
       transform: translateX(30%);
-      transition: transform 500ms ease, opacity 500ms ease;
+
+      transition:
+        transform 500ms ease,
+        opacity 500ms ease;
+
 
       &.visible {
         opacity: 1;
