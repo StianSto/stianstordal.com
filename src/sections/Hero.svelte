@@ -1,12 +1,13 @@
 <script>
+  import { fly } from "svelte/transition";
   import Button from "../lib/components/Button.svelte";
   import Underline from "../lib/components/Underline.svelte";
   import ArrowDrawn from "../lib/components/ArrowDrawn.svelte";
   import { lang } from "../lib/stores";
   import profileImg1600 from "../assets/profile/profile-w1600.jpg";
   import profileImg800 from "../assets/profile/profile-w800.jpg";
-  import { draw, scale } from "svelte/transition";
-  import { onDestroy, onMount } from "svelte";
+  import { onMount } from "svelte";
+  import { cascade } from "svelte-typewriter";
 
   let currentLang;
   lang.subscribe((data) => (currentLang = data));
@@ -22,26 +23,35 @@
 <section id="hero" bind:this={element}>
   {#key visible}
     <div class="container">
-      <div class="text">
+      <div class="text" use:cascade={{ interval: 25 }}>
         <h1>
           {#if currentLang === "en"}
             Websites should have a
             <Underline>meaningful</Underline>
             experience
+
+            <span> Websites should have a meaningful experience </span>
           {:else}
             Nettsider skal gi en
             <Underline>meningsfylt</Underline>
             opplevelse
+
+            <span> Nettsider skal gi en meningsfylt opplevelse </span>
           {/if}
         </h1>
         <p class="subtitle">
           {#if currentLang === "en"}
             Contact me to hire me or for consulting!
+            <span> Contact me to hire me or for consulting! </span>
           {:else}
             Ta kontakt for å ansette meg eller for konsultasjon
+            <span> Ta kontakt for å ansette meg eller for konsultasjon </span>
           {/if}
         </p>
-        <div class="get-in-touch">
+        <div
+          class="get-in-touch"
+          in:fly={{ y: "20%", duration: 500, delay: 2400 }}
+        >
           <a href="#contact">
             <Button>
               {#if currentLang === "en"}
@@ -54,6 +64,7 @@
           <ArrowDrawn />
         </div>
       </div>
+
       <div class="img-container">
         <img
           src={profileImg1600}
@@ -110,6 +121,28 @@
 </section>
 
 <style lang="scss">
+  h1 {
+    position: relative;
+    color: transparent;
+
+    opacity: 1;
+    & span {
+      color: var(--clr);
+      position: absolute;
+      inset: 0;
+    }
+  }
+
+  .subtitle {
+    color: transparent;
+    position: relative;
+
+    & span {
+      color: var(--clr);
+      position: absolute;
+      inset: 0;
+    }
+  }
   #hero {
     height: 100vh;
     min-height: 500px;

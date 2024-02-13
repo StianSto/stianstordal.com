@@ -18,7 +18,7 @@
       stroke="var(--primary-variant)"
       stroke-linecap="round"
       stroke-width="1"
-      in:draw={{ duration: 1500, easing: quintOut }}
+      in:draw={{ duration: 1500, easing: quintOut, delay: 2400 }}
     />
     <path
       id="Path_22"
@@ -29,7 +29,7 @@
       stroke="var(--primary-variant)"
       stroke-linecap="round"
       stroke-width="1"
-      in:draw={{ duration: 1500, easing: quintOut, delay: 300 }}
+      in:draw={{ duration: 1500, easing: quintOut, delay: 2700 }}
     />
     <path
       id="Path_21-2"
@@ -40,10 +40,10 @@
       stroke="var(--primary)"
       stroke-linecap="round"
       stroke-width="1"
-      in:draw={{ duration: 1500, easing: quintOut }}
+      in:draw={{ duration: 1500, easing: quintOut, delay: 2400 }}
     />
     <path
-      in:draw={{ duration: 1500, easing: quintOut, delay: 300 }}
+      in:draw={{ duration: 1500, easing: quintOut, delay: 2700 }}
       id="Path_22-2"
       data-name="Path 22"
       d="M672.426,654.876s-91.6,18.487-8.079,38.637"

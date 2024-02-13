@@ -1,8 +1,9 @@
 <script>
-  import { children } from "svelte/internal";
+  import { cascade } from "svelte-typewriter";
+  import { draw } from "svelte/transition";
 </script>
 
-<span class="custom-underline">
+<span class="custom-underline" data-static>
   <span>
     <slot />
   </span>
@@ -66,5 +67,16 @@
     left: 0;
     width: 100%;
     z-index: -1;
+    transform-origin: left;
+
+    scale: 0 100%;
+
+    animation: scale 400ms 800ms ease forwards;
+  }
+
+  @keyframes scale {
+    to {
+      scale: 100%;
+    }
   }
 </style>
