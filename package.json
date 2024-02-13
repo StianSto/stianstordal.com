@@ -15,6 +15,7 @@
     "sass": "^1.63.3",
     "svelte": "^3.58.0",
     "svelte-preprocess": "^5.0.4",
+    "svelte-typewriter": "^3.2.3",
     "vite": "^4.3.9"
   },
   "dependencies": {

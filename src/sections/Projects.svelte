@@ -1,8 +1,9 @@
 <script>
+  import { onDestroy, onMount } from "svelte";
   import Button from "../lib/components/Button.svelte";
   import projectsJSON from "../lib/content/projects.json";
   import { lang } from "../lib/stores";
-  import { fade } from "svelte/transition";
+  import { fade, fly } from "svelte/transition";
 
   let currentLang;
   lang.subscribe((data) => (currentLang = data));
@@ -13,10 +14,28 @@
   function selectProject(index) {
     selectedIndex = index;
   }
+
+  let visible = false;
+  let element;
+
+  function handleScroll() {
+    const bounding = element.getBoundingClientRect();
+
+    if (bounding.top <= document.documentElement.clientHeight / 2) {
+      visible = true;
+    }
+  }
+  onMount(() => {
+    window.addEventListener("scroll", handleScroll);
+  });
+
+  onDestroy(() => {
+    window.removeEventListener("scroll", handleScroll);
+  });
 </script>
 
 <!-- output -->
-<section id="myProjects">
+<section id="myProjects" bind:this={element}>
   <div class="container">
     <h2>
       {#if currentLang === "en"}
@@ -28,25 +47,29 @@
 
     <div id="projectContainer">
       <ul id="projectsSlider">
-        {#each projectsJSON as { id, thumbnail }, index}
-          <li
-            class:active={index === 0}
-            data-project={id}
-            on:click={() => selectProject(index)}
-            on:keypress={() => selectProject(index)}
-          >
-            <img
-              src={thumbnail.w1600}
-              srcset={`${thumbnail.w1600} 1600w, ${thumbnail.w800} 800w`}
-              alt=""
-              loading="lazy"
-            />
-          </li>
-        {/each}
+        {#key visible}
+          {#each projectsJSON as { id, thumbnail }, index}
+            <li
+              class:active={index === 0}
+              class:visible
+              data-project={id}
+              on:click={() => selectProject(index)}
+              on:keypress={() => selectProject(index)}
+              in:fly={{ x: "100%", duration: 500, delay: 100 * index }}
+            >
+              <img
+                src={thumbnail.w1600}
+                srcset={`${thumbnail.w1600} 1600w, ${thumbnail.w800} 800w`}
+                alt=""
+                loading="lazy"
+              />
+            </li>
+          {/each}
+        {/key}
       </ul>
 
       <div id="projectsMonitor">
-        <div id="projectsMonitorPc">
+        <div id="projectsMonitorPc" class:visible>
           {#key selectedIndex}
             <img
               transition:fade
@@ -57,7 +80,7 @@
           {/key}
         </div>
 
-        <div id="projectsMonitorMobile">
+        <div id="projectsMonitorMobile" class:visible>
           {#key selectedIndex}
             <img
               transition:fade
@@ -158,7 +181,15 @@
       width: 100%;
       aspect-ratio: 16 / 9;
       transform-origin: left;
-      transform: perspective(1000px) rotate3d(0, 1, 0, 12deg);
+      transform: translateX(15%);
+      opacity: 0;
+
+      transition: transform 500ms ease, opacity 500ms ease;
+
+      &.visible {
+        opacity: 1;
+        transform: perspective(1000px) rotate3d(0, 1, 0, 12deg) translateX(0);
+      }
     }
 
     &Mobile {
@@ -168,7 +199,15 @@
       right: 0;
       top: 0px;
       transform-origin: left;
-      transform: perspective(500px) rotate3d(0, 1, 0, 3deg);
+      opacity: 0;
+
+      transform: translateX(30%);
+      transition: transform 500ms ease, opacity 500ms ease;
+
+      &.visible {
+        opacity: 1;
+        transform: perspective(500px) rotate3d(0, 1, 0, 3deg) translate(0);
+      }
     }
   }
 
@@ -224,6 +263,11 @@
       min-width: min(200px, 50vw);
       max-width: 250px;
       scroll-snap-align: center;
+      opacity: 0;
+
+      &.visible {
+        opacity: 1;
+      }
 
       &:first-child {
         margin-left: auto;
