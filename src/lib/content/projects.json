@@ -51,31 +51,7 @@
     "websiteLink": "https://mollify.noroff.dev",
     "repoLink": "https://github.com/Fermain/-mollify"
   },
-  {
-    "id": "theDailyBrew",
-    "title": "The Daily Brew",
-    "description": {
-      "no": "The Daily Brew er en blogg for kaffeelskere og -entusiaster. Denne nettsiden ble laget som mitt eksamensprosjekt under mitt første år på Noroff. Å lage dette nettstedet utfordret meg til å utforske JavaScript verdenen mer enn noen gang før. Oppdatering: backenden for denne siden er tatt ned så den er ikke brukelig, men du er velkommen til å sjekke ut prosjektet :)",
-      "en": "The Daily Brew is a blog for coffee lovers and -enthusiasts. This website was made as my exam project during my first year at Noroff. making the website challenged me to explore the world of JS more than ever before. Update: the backend for this site is down, but you are welcome to take a look at the project regardless :)"
-    },
-    "thumbnail": {
-      "original": "/projects/thedailybrew/logo.png",
-      "w1600": "/projects/thedailybrew/logo-1600w.png",
-      "w800": "/projects/thedailybrew/logo-800w.png"
-    },
-    "imageDesktop": {
-      "original": "/projects/thedailybrew/desktop.jpg",
-      "w1600": "/projects/thedailybrew/desktop-1600w.jpg",
-      "w800": "/projects/thedailybrew/desktop-800w.jpg"
-    },
-    "imageMobile": {
-      "original": "/projects/thedailybrew/phone.jpg",
-      "w1600": "/projects/thedailybrew/phone-1600w.jpg",
-      "w800": "/projects/thedailybrew/phone-800w.jpg"
-    },
-    "websiteLink": "https://thedailybrew.stianstordal.com",
-    "repoLink": "https://github.com/Noroff-FEU-Assignments/project-exam-1-StianSto"
-  },
+
   {
     "id": "csm",
     "title": "Community Science Museum (CSM)",
