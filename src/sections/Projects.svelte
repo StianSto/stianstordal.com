@@ -3,7 +3,9 @@
   import Button from "../lib/components/Button.svelte";
   import projectsJSON from "../lib/content/projects.json";
   import { lang } from "../lib/stores";
+
   import { fly } from "svelte/transition";
+
 
   let currentLang;
   lang.subscribe((data) => (currentLang = data));
@@ -14,7 +16,9 @@
     selectedProject = index;
   }
 
+
   let ready = false;
+
   let visible = false;
   let element;
 
@@ -26,12 +30,14 @@
     }
   }
 
+
   onMount(() => {
     window.addEventListener("scroll", handleScroll);
     ready = true;
     setTimeout(() => {
       handleScroll();
     }, 250);
+
   });
 
   onDestroy(() => {
@@ -73,6 +79,7 @@
         {/key}
       </ul>
 
+
       {#if ready}
         <!-- content here -->
         <div id="projectsMonitor">
@@ -95,6 +102,7 @@
               />
             {/each}
           </div>
+
         </div>
 
         <div id="projectsBody">
@@ -197,9 +205,11 @@
       transform: translateX(15%);
       opacity: 0;
 
+
       transition:
         transform 500ms ease,
         opacity 500ms ease;
+
 
       &.visible {
         opacity: 1;
@@ -217,9 +227,11 @@
       opacity: 0;
 
       transform: translateX(30%);
+
       transition:
         transform 500ms ease,
         opacity 500ms ease;
+
 
       &.visible {
         opacity: 1;
