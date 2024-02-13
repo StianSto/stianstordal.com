@@ -1,5 +1,5 @@
 <script>
-  import { fly } from "svelte/transition";
+  import { fly, fade } from "svelte/transition";
   import Skillset from "./Skillset.svelte";
   import cypressLogo from "../assets/cypress-logo.svg";
   import skillsetTopBow from "../assets/skillsetTopBow.svg";
@@ -15,7 +15,7 @@
   function handleScroll() {
     const bounding = element.getBoundingClientRect();
 
-    if (bounding.top <= document.documentElement.clientHeight) {
+    if (bounding.top <= document.documentElement.clientHeight / 2) {
       visible = true;
     }
   }
@@ -40,6 +40,7 @@
       d="M1926,2099.467v64.356C1720.357,2214.35,1016.812,2283.8,5.569,2105.7L6,2099.467Z"
       transform="translate(-5.569 -2099.467)"
       fill="var(--background)"
+      style="transition: fill 200ms ease"
     />
   </svg>
 
@@ -54,7 +55,7 @@
       </h2>
       <div>
         <div class="skills-frontend skills-container">
-          <h3>FrontEnd</h3>
+          <h3 in:fade class:visible>FrontEnd</h3>
           <ul>
             <li in:fly={{ x: "100%", duration: 500, delay: 50 }} class:visible>
               <i class="devicon-html5-plain" />
@@ -107,7 +108,7 @@
           </ul>
         </div>
         <div class="skills-backend skills-container">
-          <h3>BackEnd</h3>
+          <h3 in:fade={{ delay: 500 }} class:visible>BackEnd</h3>
           <ul>
             <li in:fly={{ x: "100%", duration: 500, delay: 600 }} class:visible>
               <i class="devicon-express-original" />
@@ -120,7 +121,7 @@
           </ul>
         </div>
         <div class="skills-design skills-container">
-          <h3>Design</h3>
+          <h3 in:fade={{ delay: 600 }} class:visible>Design</h3>
           <ul>
             <li in:fly={{ x: "100%", duration: 500, delay: 700 }} class:visible>
               <i class="devicon-xd-plain" />
@@ -155,6 +156,7 @@
       d="M6,3061.619H1926v-42.159c-876.847-123.422-1437.421-41.4-1920-.015Z"
       transform="translate(-6 -2954.2)"
       fill="var(--background)"
+      style="transition: fill 200ms ease"
     />
   </svg>
 </section>
@@ -175,6 +177,11 @@
   h3 {
     font-weight: 400;
     margin-bottom: 0.5em;
+    opacity: 0;
+
+    &.visible {
+      opacity: 1;
+    }
   }
 
   .container {
