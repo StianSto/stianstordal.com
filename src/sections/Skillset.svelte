@@ -89,6 +89,12 @@
               <i class="devicon-react-plain" />
               <span>React</span>
             </li>
+            <li in:fly={{ x: "100%", duration: 500, delay: 400 }} class:visible>
+              <!-- <i class="devicon-nextjs-original-wordmark white"></i> -->
+              <i class="devicon-nextjs-plain"></i>
+
+              <span>Next.JS</span>
+            </li>
             <li in:fly={{ x: "100%", duration: 500, delay: 450 }} class:visible>
               <i class="devicon-svelte-plain" />
               <span>Svelte</span>

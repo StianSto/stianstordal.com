@@ -26,42 +26,60 @@
       <div class="text" use:cascade={{ interval: 25 }}>
         <h1>
           {#if currentLang === "en"}
-            Websites should have a
+            <!-- Websites should have a
             <Underline>meaningful</Underline>
             experience
 
-            <span> Websites should have a meaningful experience </span>
+            <span> Websites should have a meaningful experience </span> -->
+            FrontEnd / Fullstack developer
+            <span aria-hidden="true"> FrontEnd / Fullstack developer </span>
           {:else}
-            Nettsider skal gi en
+            <!-- Nettsider skal gi en
             <Underline>meningsfylt</Underline>
             opplevelse
 
-            <span> Nettsider skal gi en meningsfylt opplevelse </span>
+            <span> Nettsider skal gi en meningsfylt opplevelse </span> -->
+            FrontEnd / Fullstack Utvikler
+            <span aria-hidden="true"> FrontEnd / Fullstack Utvikler </span>
           {/if}
         </h1>
         <p class="subtitle">
           {#if currentLang === "en"}
-            Contact me to hire me or for consulting!
-            <span> Contact me to hire me or for consulting! </span>
+            I'm Stian, a FrontEnd developer with a passion for combining
+            creativity and logic. I love being challenged and learning new
+            things!
+            <span aria-hidden="true">
+              I'm Stian, a FrontEnd developer with a passion for combining
+              creativity and logic. I love being challenged and learning new
+              things!
+            </span>
           {:else}
-            Ta kontakt for å ansette meg eller for konsultasjon
-            <span> Ta kontakt for å ansette meg eller for konsultasjon </span>
+            Jeg er Stian, en FrontEnd utvikler med en lidenskap for å kombinere
+            kreativitet og logikk. Jeg elsker å bli utfordret og lære nye ting!
+            <span>
+              Jeg er Stian, en FrontEnd utvikler med en lidenskap for å
+              kombinere kreativitet og logikk. Jeg elsker å bli utfordret og
+              lære nye ting!
+            </span>
           {/if}
         </p>
-        <div
-          class="get-in-touch"
-          in:fly={{ y: "20%", duration: 500, delay: 2400 }}
-        >
-          <a href="#contact">
-            <Button>
+        <div class="get-in-touch">
+          <!-- <a href="#myProjects"> -->
+          <div in:fly={{ y: "20%", duration: 800, delay: 5000 }}>
+            <Button
+              on:click={() => {
+                window.scrollBy({ top: window.innerHeight });
+              }}
+            >
               {#if currentLang === "en"}
-                Get in touch
+                Check out my projects
               {:else}
-                Kontakt Meg
+                Se noen av mine prosjekter
               {/if}
             </Button>
-          </a>
-          <ArrowDrawn />
+          </div>
+          <!-- </a> -->
+          <ArrowDrawn inDelay={4500} />
         </div>
       </div>
 

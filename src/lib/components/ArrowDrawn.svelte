@@ -1,6 +1,7 @@
 <script>
   import { draw } from "svelte/transition";
   import { quintOut } from "svelte/easing";
+  export let inDelay = 0;
 </script>
 
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 169.901 51.861">
@@ -18,7 +19,7 @@
       stroke="var(--primary-variant)"
       stroke-linecap="round"
       stroke-width="1"
-      in:draw={{ duration: 1500, easing: quintOut, delay: 2400 }}
+      in:draw={{ duration: 1500, easing: quintOut, delay: inDelay }}
     />
     <path
       id="Path_22"
@@ -29,7 +30,7 @@
       stroke="var(--primary-variant)"
       stroke-linecap="round"
       stroke-width="1"
-      in:draw={{ duration: 1500, easing: quintOut, delay: 2700 }}
+      in:draw={{ duration: 1500, easing: quintOut, delay: inDelay + 300 }}
     />
     <path
       id="Path_21-2"
@@ -40,10 +41,10 @@
       stroke="var(--primary)"
       stroke-linecap="round"
       stroke-width="1"
-      in:draw={{ duration: 1500, easing: quintOut, delay: 2400 }}
+      in:draw={{ duration: 1500, easing: quintOut, delay: inDelay }}
     />
     <path
-      in:draw={{ duration: 1500, easing: quintOut, delay: 2700 }}
+      in:draw={{ duration: 1500, easing: quintOut, delay: inDelay + 300 }}
       id="Path_22-2"
       data-name="Path 22"
       d="M672.426,654.876s-91.6,18.487-8.079,38.637"
