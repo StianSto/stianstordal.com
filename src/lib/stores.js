@@ -1,6 +1,6 @@
 import { writable } from "svelte/store";
 
-export const lang = writable(JSON.parse(localStorage.getItem("lang")) || "en");
+export const lang = writable(JSON.parse(localStorage.getItem("lang")) || "no");
 export const theme = writable(
   JSON.parse(localStorage.getItem("theme")) || "light"
 );
