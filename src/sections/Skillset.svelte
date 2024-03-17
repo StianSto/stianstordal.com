@@ -89,12 +89,7 @@
               <i class="devicon-react-plain" />
               <span>React</span>
             </li>
-            <li in:fly={{ x: "100%", duration: 500, delay: 400 }} class:visible>
-              <!-- <i class="devicon-nextjs-original-wordmark white"></i> -->
-              <i class="devicon-nextjs-plain"></i>
 
-              <span>Next.JS</span>
-            </li>
             <li in:fly={{ x: "100%", duration: 500, delay: 450 }} class:visible>
               <i class="devicon-svelte-plain" />
               <span>Svelte</span>
@@ -124,24 +119,29 @@
               <i class="devicon-mongodb-plain" />
               <span>MongoDB</span>
             </li>
+            <li in:fly={{ x: "100%", duration: 500, delay: 700 }} class:visible>
+              <!-- <i class="devicon-nextjs-original-wordmark white"></i> -->
+              <i class="devicon-nextjs-plain"></i>
+              <span>Next.JS</span>
+            </li>
           </ul>
         </div>
         <div class="skills-design skills-container">
           <h3 in:fade={{ delay: 600 }} class:visible>Design</h3>
           <ul>
-            <li in:fly={{ x: "100%", duration: 500, delay: 700 }} class:visible>
+            <li in:fly={{ x: "100%", duration: 500, delay: 750 }} class:visible>
               <i class="devicon-xd-plain" />
               <span>Adobe XD</span>
             </li>
-            <li in:fly={{ x: "100%", duration: 500, delay: 750 }} class:visible>
+            <li in:fly={{ x: "100%", duration: 500, delay: 800 }} class:visible>
               <i class="devicon-illustrator-plain" />
               <span>Adobe Illustrator</span>
             </li>
-            <li in:fly={{ x: "100%", duration: 500, delay: 800 }} class:visible>
+            <li in:fly={{ x: "100%", duration: 500, delay: 850 }} class:visible>
               <i class="devicon-photoshop-plain" />
               <span>Adobe Photoshop</span>
             </li>
-            <li in:fly={{ x: "100%", duration: 500, delay: 850 }} class:visible>
+            <li in:fly={{ x: "100%", duration: 500, delay: 900 }} class:visible>
               <i class="devicon-figma-plain" />
               <span>Figma</span>
             </li>

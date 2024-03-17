@@ -92,6 +92,7 @@
           alt="Stian Stordal, author of this page"
         />
 
+        <!-- Temporarily removed hero picture line gfx-->
         <svg
           id="Layer_1"
           xmlns="http://www.w3.org/2000/svg"
@@ -117,6 +118,7 @@
           id="Layer_1"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 587.87 719.7"
+          class="back"
           ><defs
             ><style>
               .primary {
@@ -168,6 +170,7 @@
     flex-direction: column;
     justify-content: center;
     margin-bottom: -7%;
+    overflow: hidden;
 
     & .container {
       display: flex;
@@ -188,12 +191,20 @@
         top: 50%;
         translate: 0 -50%;
         z-index: -1;
+        animation: herolines 40s infinite linear;
+
+        &.back {
+          animation: herolines-back 30s infinite linear;
+          transform: rotateY(180deg);
+          scale: 1.02;
+        }
       }
     }
   }
 
   .img-container {
     flex: 1;
+    position: relative;
 
     @media screen and (max-width: 800px) {
       display: none;
@@ -211,5 +222,28 @@
     display: flex;
     align-items: center;
     gap: 2em;
+  }
+
+  @keyframes herolines {
+    from {
+      rotate: 0;
+      scale: 1;
+    }
+    50% {
+      scale: 0.95;
+      rotate: 180deg, 20deg;
+    }
+    to {
+      rotate: 360deg;
+      scale: 1;
+    }
+  }
+  @keyframes herolines-back {
+    from {
+      rotate: 0;
+    }
+    to {
+      rotate: -360deg;
+    }
   }
 </style>
