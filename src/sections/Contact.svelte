@@ -1,4 +1,5 @@
 <script>
+  import { fly } from "svelte/transition";
   import Button from "../lib/components/Button.svelte";
   import InputFloating from "../lib/components/InputFloating.svelte";
   import Snackbar from "../lib/components/Snackbar.svelte";
@@ -12,55 +13,36 @@
     emailjs.init(import.meta.env.VITE_PUBLIC_KEY);
   })();
 
+  let email = "stordalstiandev@gmail.com";
+  let tel = "+47 95 45 96 87";
+  let emailCopied = false;
+  let telCopied = false;
+
   let snackbarMessages = [];
-  function handleSubmit(e) {
-    let emailError = false;
-    let emailSuccess = false;
-    let msg = "";
-
-    const submitBtn = e.target.querySelector("button");
-    submitBtn.disabled = true;
-
-    const formData = new FormData(e.target);
-    const data = Object.fromEntries(formData);
-
-    emailjs
-      .send(
-        import.meta.env.VITE_SERVICE_ID,
-        import.meta.env.VITE_TEMPLATE_ID,
-        data
-      )
-      .then(
-        function (response) {
-          console.log("SUCCESS!", response.status, response.text);
-          emailSuccess = true;
-          msg =
-            "Message Sent! Thank you for your message, i will be in touch shortly :)";
-          giveResponseToUser();
-          submitBtn.disabled = false;
-        },
-        function (error) {
-          console.log("FAILED...", error);
-          msg = "Ooops, seems there was an error while sending the message :(";
-          emailError = true;
-          giveResponseToUser();
-          submitBtn.disabled = false;
-        }
-      );
-
-    function giveResponseToUser() {
-      const id = Math.floor(Math.random() * 999);
-      snackbarMessages = [
-        ...snackbarMessages,
-        { msg, id, emailError, emailSuccess },
-      ];
-    }
-  }
 
   function removeSnackbar(e) {
     snackbarMessages = snackbarMessages.filter((arr) => {
       arr.id !== e.detail.id;
     });
+  }
+
+  function copyToClipboard(value) {
+    navigator.clipboard.writeText(value);
+    switch (value) {
+      case tel:
+        telCopied = true;
+        emailCopied = false;
+        break;
+      case email:
+        emailCopied = true;
+        telCopied = false;
+        break;
+    }
+    console.log(value);
+    setTimeout(() => {
+      emailCopied = false;
+      telCopied = false;
+    }, 3500);
   }
 </script>
 
@@ -85,49 +67,43 @@
       {/if}
     </h2>
     <div class="flex">
-      <form on:submit|preventDefault={handleSubmit}>
-        {#if currentLang === "en"}
-          <InputFloating type="text" name="name" id="name" required
-            >Name</InputFloating
-          >
-          <InputFloating type="email" name="email" id="email"
-            >Email</InputFloating
-          >
-          <InputFloating type="text" name="subject" id="subject"
-            >subject</InputFloating
-          >
-
-          <InputFloating inputType="textArea" name="message" id="message"
-            >Message</InputFloating
-          >
-          <Button>Send Message</Button>
-        {:else}
-          <InputFloating type="text" name="name" id="name">Navn</InputFloating>
-          <InputFloating type="email" name="email" id="email"
-            >Email</InputFloating
-          >
-          <InputFloating type="text" name="subject" id="subject"
-            >Emne</InputFloating
-          >
-
-          <InputFloating inputType="textArea" name="message" id="message"
-            >Melding</InputFloating
-          >
-          <Button>Send Melding</Button>
-        {/if}
-      </form>
-
       <div class="contact-info">
         <div>
           <i class="fa fa-solid fa-envelope" />
-          <p>stordalstiandev@gmail.com</p>
+          <p on:click={() => copyToClipboard(email)}>{email}</p>
+          {#if emailCopied}
+            <button in:fly={{ x: 10, duration: 600 }}>
+              <i class="fa fa-solid fa-thumbs-up" /><span>copied</span>
+            </button>
+          {:else}
+            <button
+              on:click={() => copyToClipboard(email)}
+              aria-label="copy phone number"
+            >
+              <i class="fa fa-solid fa-copy" />
+            </button>
+          {/if}
         </div>
         <div>
           <i class="fa fa-solid fa-phone-alt" />
-          <p>+47 954 59 687</p>
+          <p on:click={() => copyToClipboard(tel)}>{tel}</p>
+
+          {#if telCopied}
+            <button in:fly={{ x: 10, duration: 600 }}>
+              <i class="fa fa-solid fa-thumbs-up" /><span>copied</span>
+            </button>
+          {:else}
+            <button
+              on:click={() => copyToClipboard(tel)}
+              aria-label="copy phone number"
+            >
+              <i class="fa fa-solid fa-copy" />
+            </button>
+          {/if}
         </div>
       </div>
     </div>
+    <div></div>
   </div>
 </section>
 
@@ -166,19 +142,10 @@
     }
   }
 
-  form {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 1em;
-    max-width: max(500px, 50vw);
-
-    & button {
-      margin-top: 2rem;
-    }
-  }
-
   .contact-info {
+    & p:hover {
+      cursor: pointer;
+    }
     & > * {
       display: flex;
       align-items: center;
@@ -189,6 +156,37 @@
       & i {
         font-size: 1.5em;
       }
+    }
+
+    & button {
+      background: none;
+      border: none;
+      color: rgba(200, 200, 200);
+      display: flex;
+      align-items: center;
+      flex-wrap: nowrap;
+      gap: 4px;
+
+      animation: fadeIn 200ms ease-out forwards;
+
+      &:hover {
+        cursor: pointer;
+      }
+
+      & .fa-thumbs-up {
+        color: var(--primary);
+      }
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      translate: -10%;
+    }
+    to {
+      opacity: 1;
+      translate: 0;
     }
   }
 </style>
