@@ -12,6 +12,7 @@
   import { lang, theme } from "./lib/stores";
   import HeroDivider from "./lib/components/dividers/HeroDivider.svelte";
   import Nav from "./lib/components/Nav.svelte";
+  import BackgroundBlob from "./lib/components/BackgroundBlob.svelte";
 
   let currentLang;
   lang.subscribe((data) => (currentLang = data));
@@ -21,19 +22,26 @@
   }
 
   let header;
+  let headerOnTop = true;
   let prevScrollpos = window.pageYOffset;
   window.onscroll = function () {
     let currentScrollPos = window.pageYOffset;
+    console.log(currentScrollPos);
     if (prevScrollpos > currentScrollPos) {
       header.style.top = "0";
-    } else if (currentScrollPos > 100) {
+    } else if (currentScrollPos > 200) {
       header.style.top = "-100px";
+      headerOnTop = false;
+    } else if (currentScrollPos < 200) {
+      headerOnTop = true;
     }
     prevScrollpos = currentScrollPos;
   };
 </script>
 
-<header bind:this={header}>
+<BackgroundBlob />
+
+<header bind:this={header} class:headerOnTop>
   <div class="container">
     <button id="langToggleBtn" on:click={toggleLang} on:keydown={toggleLang}>
       <img
@@ -92,12 +100,17 @@
 </main>
 
 <style>
+  .headerOnTop {
+    background: transparent;
+  }
   header {
     position: fixed;
 
     font-size: var(--fs-p);
     padding: 1rem 0;
-    transition: all 200ms ease-in-out, background 200ms ease;
+    transition:
+      all 200ms ease-in-out,
+      background 200ms ease;
     width: 100%;
     background-color: var(--background);
     z-index: 1000;
