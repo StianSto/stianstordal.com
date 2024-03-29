@@ -94,6 +94,10 @@
 </section>
 
 <style>
+  #bio {
+    margin: 0;
+    padding-block: 12em;
+  }
   .container {
     max-width: 800px;
     opacity: 0;

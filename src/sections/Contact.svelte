@@ -46,8 +46,9 @@
   }
 </script>
 
+<div id="divider-contact-top"></div>
 <section id="contact">
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920.484 156.83">
+  <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920.484 156.83">
     <path
       id="Path_97"
       data-name="Path 97"
@@ -56,7 +57,7 @@
       fill="var(--background)"
       style="transition: fill 200ms ease"
     />
-  </svg>
+  </svg> -->
 
   <div class="container">
     <h2>
@@ -106,6 +107,20 @@
     <div></div>
   </div>
 </section>
+<svg class="svg" style="position: absolute;" width="0" height="0">
+  <clipPath id="divider-top-clip" clipPathUnits="objectBoundingBox"
+    ><path
+      d="
+		M0,0 
+		C0.22, 0.7,
+		0.507,1,
+		1,0.3 
+		L1,1 
+		L0,1
+		Z"
+    ></path></clipPath
+  >
+</svg>
 
 {#each snackbarMessages as snack (snack.id)}
   <Snackbar
@@ -121,10 +136,21 @@
   section {
     background-color: var(--charcoal);
     color: var(--milkywhite);
+    margin: 0;
   }
 
+  #divider-contact-top {
+    width: 100%;
+    aspect-ratio: 8/1;
+    min-height: 70px;
+    rotate: y 180deg;
+    background: var(--charcoal);
+    clip-path: url("#divider-top-clip");
+    margin-bottom: -2px;
+  }
   .container {
     padding-block: 4rem 10rem;
+    max-width: 800px;
   }
 
   h2 {

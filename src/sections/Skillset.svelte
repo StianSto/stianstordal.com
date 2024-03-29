@@ -1,8 +1,7 @@
 <script>
   import { fly, fade } from "svelte/transition";
-  import Skillset from "./Skillset.svelte";
+
   import cypressLogo from "../assets/cypress-logo.svg";
-  import skillsetTopBow from "../assets/skillsetTopBow.svg";
   import { lang } from "../lib/stores";
   import { onDestroy, onMount } from "svelte";
 
@@ -28,22 +27,9 @@
   });
 </script>
 
-<section id="skillset">
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 1920.431 121.082"
-    aria-hidden="true"
-  >
-    <path
-      id="Path_95"
-      data-name="Path 95"
-      d="M1926,2099.467v64.356C1720.357,2214.35,1016.812,2283.8,5.569,2105.7L6,2099.467Z"
-      transform="translate(-5.569 -2099.467)"
-      fill="var(--background)"
-      style="transition: fill 200ms ease"
-    />
-  </svg>
+<div id="divider-top" class="bg-gradient"></div>
 
+<section id="skillset" class="bg-gradient">
   <div class="container" bind:this={element}>
     {#key visible}
       <h2>
@@ -150,29 +136,57 @@
       </div>
     {/key}
   </div>
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 1920 107.419"
-    class="bow"
-    aria-hidden="true"
-  >
-    <path
-      id="Path_96"
-      data-name="Path 96"
-      d="M6,3061.619H1926v-42.159c-876.847-123.422-1437.421-41.4-1920-.015Z"
-      transform="translate(-6 -2954.2)"
-      fill="var(--background)"
-      style="transition: fill 200ms ease"
-    />
-  </svg>
 </section>
+<div id="divider-bottom" class="bg-gradient"></div>
+<svg class="svg" style="position: absolute;" width="0" height="0">
+  <clipPath id="divider-top-clip" clipPathUnits="objectBoundingBox"
+    ><path
+      d="
+		M0,0 
+		C0.22, 0.7,
+		0.507,1,
+		1,0.3 
+		L1,1 
+		L0,1
+		Z"
+    ></path></clipPath
+  >
+  <clipPath id="divider-bottom-clip" clipPathUnits="objectBoundingBox"
+    ><path d="M1,0 L0.999,0.664 C0.64,0.313,0,0.965,0,1 L0,0 L1,0"></path>
+  </clipPath>
+</svg>
 
 <style lang="scss">
+  .bg-gradient {
+    background-attachment: fixed;
+    background-image: linear-gradient(
+      -30deg,
+      var(--primary-variant),
+      var(--primary)
+    );
+  }
+
+  #divider-top {
+    margin-bottom: -2px;
+    clip-path: url("#divider-top-clip");
+  }
+  #divider-bottom {
+    margin-top: -2px;
+    clip-path: url("#divider-bottom-clip");
+  }
+  #divider-bottom,
+  #divider-top {
+    width: 100%;
+    min-height: 70px;
+    aspect-ratio: 7/1;
+  }
+
   #skillset {
     min-height: 500px;
-    background-color: var(--primary);
-    background: var(--gradient-primary);
+    /* background-color: var(--primary); */
+    /* background: var(--gradient-primary); */
     color: white;
+    margin: 0;
   }
 
   h2 {
