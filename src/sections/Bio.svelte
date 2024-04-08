@@ -108,7 +108,8 @@
   }
 
   p {
-    margin-block: 1rem;
+    font-size: clamp(16px, calc(0.75vw + 0.5em), 20px);
+    margin-block: 0.75em;
   }
 
   .link-group {
