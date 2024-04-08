@@ -6,7 +6,6 @@
 
   import { fly } from "svelte/transition";
 
-
   let currentLang;
   lang.subscribe((data) => (currentLang = data));
 
@@ -15,7 +14,6 @@
   function selectProject(index) {
     selectedProject = index;
   }
-
 
   let ready = false;
 
@@ -30,14 +28,12 @@
     }
   }
 
-
   onMount(() => {
     window.addEventListener("scroll", handleScroll);
     ready = true;
     setTimeout(() => {
       handleScroll();
     }, 250);
-
   });
 
   onDestroy(() => {
@@ -79,7 +75,6 @@
         {/key}
       </ul>
 
-
       {#if ready}
         <!-- content here -->
         <div id="projectsMonitor">
@@ -102,7 +97,6 @@
               />
             {/each}
           </div>
-
         </div>
 
         <div id="projectsBody">
@@ -205,11 +199,9 @@
       transform: translateX(15%);
       opacity: 0;
 
-
       transition:
         transform 500ms ease,
         opacity 500ms ease;
-
 
       &.visible {
         opacity: 1;
@@ -232,7 +224,6 @@
         transform 500ms ease,
         opacity 500ms ease;
 
-
       &.visible {
         opacity: 1;
         transform: perspective(500px) rotate3d(0, 1, 0, 3deg) translate(0);
@@ -249,6 +240,7 @@
 
     .description {
       margin-bottom: 2.5rem;
+      font-size: clamp(16px, calc(0.75vw + 0.5em), 20px);
     }
 
     .btn-group {
@@ -308,9 +300,9 @@
       & img {
         width: 100%;
         height: 100%;
-        object-fit: cover;
         opacity: 0.7;
         transition: all 400ms ease;
+        padding: 8px;
       }
 
       &:hover {
