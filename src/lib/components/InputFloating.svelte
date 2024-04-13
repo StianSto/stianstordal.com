@@ -6,7 +6,7 @@
   export let required = false;
 </script>
 
-<div>
+<div class="relative">
   {#if inputType === "textArea"}
     <textarea
       {name}
@@ -17,28 +17,25 @@
       placeholder=" "
     />
   {:else}
-    <input class="form-input" {type} {name} {id} placeholder=" " {required} />
+    <input
+      class="form-input ps-5 py-4 pe-2 w-full rounded text-lg"
+      {type}
+      {name}
+      {id}
+      placeholder=" "
+      {required}
+    />
   {/if}
 
-  <label for={id} class="floating-input"><slot /></label>
+  <label
+    for={id}
+    class="floating-input absolute top-0 left-0 opacity-80 translate-y-100 ms-4 capitalize"
+    ><slot /></label
+  >
 </div>
 
 <style lang="scss">
   div {
-    position: relative;
-
-    & label {
-      position: absolute;
-      top: 0;
-      left: 0;
-      color: var(--midnight);
-      opacity: 0.8;
-      translate: 0 100%;
-      margin-left: 1em;
-      transition: all 200ms ease;
-      text-transform: capitalize;
-    }
-
     &:has(.form-input:focus),
     &:has(.form-input:not(:placeholder-shown)) {
       & label {
@@ -47,6 +44,7 @@
         opacity: 0.5;
       }
     }
+
     &:has(.form-input:focus) {
       & label {
         opacity: 1;
@@ -54,12 +52,13 @@
     }
   }
 
+  label {
+    color: var(--midnight);
+    transition: all 200ms ease;
+  }
+
   .form-input {
     background-color: var(--milkywhite);
-    padding: 1.25em 1em 0.5em 1em;
-    width: 100%;
-    border-radius: 5px;
-    font-size: 18px;
     font-family: var(--font-family);
   }
 </style>

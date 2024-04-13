@@ -1,7 +1,6 @@
 <script>
   import { fly } from "svelte/transition";
   import Button from "../lib/components/Button.svelte";
-  import Underline from "../lib/components/Underline.svelte";
   import ArrowDrawn from "../lib/components/ArrowDrawn.svelte";
   import { lang } from "../lib/stores";
   import profileImg1600 from "../assets/profile/profile-w1600.jpg";
@@ -20,35 +19,35 @@
   });
 </script>
 
-<section id="hero" bind:this={element}>
+<section
+  id="hero"
+  bind:this={element}
+  class="h-screen min-h-[500px] px-4 md:px-8 flex flex-col justify-center -mb-[7%] overflow-hidden"
+>
   {#key visible}
-    <div class="container">
-      <div class="text" use:cascade={{ interval: 25 }}>
-        <h1>
+    <div
+      class="max-w-screen-lg mx-auto flex flex-nowrap gap-4 items-center relative isolate"
+    >
+      <div class="flex-[2]" use:cascade={{ interval: 25 }}>
+        <h1 class="relative text-transparent font-bold leading-[1.2em]">
           {#if currentLang === "en"}
-            <!-- Websites should have a
-            <Underline>meaningful</Underline>
-            experience
-
-            <span> Websites should have a meaningful experience </span> -->
             FrontEnd / Fullstack developer
-            <span aria-hidden="true"> FrontEnd / Fullstack developer </span>
+            <span aria-hidden="true" class="absolute inset-0">
+              FrontEnd / Fullstack developer
+            </span>
           {:else}
-            <!-- Nettsider skal gi en
-            <Underline>meningsfylt</Underline>
-            opplevelse
-
-            <span> Nettsider skal gi en meningsfylt opplevelse </span> -->
             FrontEnd / Fullstack Utvikler
-            <span aria-hidden="true"> FrontEnd / Fullstack Utvikler </span>
+            <span aria-hidden="true" class="absolute inset-0">
+              FrontEnd / Fullstack Utvikler
+            </span>
           {/if}
         </h1>
-        <p class="subtitle">
+        <p class="subtitle relative text-transparent mt-6 mb-12 leading-tight">
           {#if currentLang === "en"}
             I'm Stian, a FrontEnd developer with a passion for combining
             creativity and logic. I love being challenged and learning new
             things!
-            <span aria-hidden="true">
+            <span aria-hidden="true" class="absolute inset-0">
               I'm Stian, a FrontEnd developer with a passion for combining
               creativity and logic. I love being challenged and learning new
               things!
@@ -56,15 +55,14 @@
           {:else}
             Jeg er Stian, en FrontEnd utvikler med en lidenskap for å kombinere
             kreativitet og logikk. Jeg elsker å bli utfordret og lære nye ting!
-            <span>
+            <span aria-hidden="true" class="absolute inset-0">
               Jeg er Stian, en FrontEnd utvikler med en lidenskap for å
               kombinere kreativitet og logikk. Jeg elsker å bli utfordret og
               lære nye ting!
             </span>
           {/if}
         </p>
-        <div class="get-in-touch">
-          <!-- <a href="#myProjects"> -->
+        <div class="flex items-center gap-8">
           <div in:fly={{ y: "20%", duration: 800, delay: 5000 }}>
             <Button
               on:click={() => {
@@ -78,13 +76,13 @@
               {/if}
             </Button>
           </div>
-          <!-- </a> -->
           <ArrowDrawn inDelay={4500} />
         </div>
       </div>
 
-      <div class="img-container">
+      <div class="flex-1 relative hidden lg:block">
         <img
+          id="profileImg"
           src={profileImg1600}
           srcset={`${profileImg1600} 1600w, 
 				${profileImg800} 800w,
@@ -92,9 +90,8 @@
           alt="Stian Stordal, author of this page"
         />
 
-        <!-- Temporarily removed hero picture line gfx-->
         <svg
-          id="Layer_1"
+          id="ring1"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 586.65 737.24"
         >
@@ -115,10 +112,9 @@
         </svg>
 
         <svg
-          id="Layer_1"
+          id="ring2"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 587.87 719.7"
-          class="back"
           ><defs
             ><style>
               .primary {
@@ -141,87 +137,26 @@
 </section>
 
 <style lang="scss">
-  h1 {
-    position: relative;
-    color: transparent;
-
-    opacity: 1;
-    & span {
-      color: var(--clr);
-      position: absolute;
-      inset: 0;
-    }
+  #ring1,
+  #ring2 {
+    position: absolute;
+    top: 50%;
+    translate: 0 -50%;
+    z-index: -1;
+    animation: herolines 40s infinite linear;
+  }
+  #ring2 {
+    animation: herolines-back 30s infinite linear;
+    transform: rotateY(180deg);
+    scale: 1.02;
   }
 
-  .subtitle {
-    color: transparent;
-    position: relative;
-
-    & span {
-      color: var(--clr);
-      position: absolute;
-      inset: 0;
-    }
-  }
-  #hero {
-    height: 100vh;
-    min-height: 500px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin-bottom: -7%;
-    overflow: hidden;
-
-    & .container {
-      display: flex;
-      align-items: center;
-      position: relative;
-      isolation: isolate;
-
-      & .text {
-        flex: 2;
-
-        & p {
-          margin-block: 2em 1em;
-        }
-      }
-
-      & svg {
-        position: absolute;
-        top: 50%;
-        translate: 0 -50%;
-        z-index: -1;
-        animation: herolines 40s infinite linear;
-
-        &.back {
-          animation: herolines-back 30s infinite linear;
-          transform: rotateY(180deg);
-          scale: 1.02;
-        }
-      }
-    }
-  }
-
-  .img-container {
-    flex: 1;
-    position: relative;
-
-    @media screen and (max-width: 800px) {
-      display: none;
-    }
-    & img {
-      width: 100%;
-      -webkit-mask-image: url("../assets/profile/profile-clip.svg");
-      mask-image: url("../assets/profile/profile-clip.svg");
-      -webkit-mask-repeat: no-repeat;
-      mask-repeat: no-repeat;
-    }
-  }
-
-  .get-in-touch {
-    display: flex;
-    align-items: center;
-    gap: 2em;
+  #profileImg {
+    width: 100%;
+    -webkit-mask-image: url("../assets/profile/profile-clip.svg");
+    mask-image: url("../assets/profile/profile-clip.svg");
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
   }
 
   @keyframes herolines {
@@ -230,7 +165,7 @@
       scale: 1;
     }
     50% {
-      scale: 0.95;
+      scale: 0.92;
       rotate: 180deg, 20deg;
     }
     to {

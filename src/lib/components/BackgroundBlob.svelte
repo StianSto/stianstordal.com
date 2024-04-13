@@ -8,7 +8,6 @@
   let blob;
 
   function updateBlobPos(e) {
-    console.log(e);
     const { clientX, clientY } = e;
     blob.style.left = `${clientX}px`;
     blob.style.top = `${clientY}px`;
@@ -23,12 +22,9 @@
   }
 
   document.body.onpointermove = (e) => updateBlobPos(e);
-  // window.onscroll = (e) => updateBlobPos(e);
 
   onMount(() => {
     blob = document.getElementById("blobContainer");
-
-    console.log(blob);
   });
 </script>
 

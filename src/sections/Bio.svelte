@@ -25,11 +25,11 @@
   });
 </script>
 
-<section id="bio" bind:this={element}>
+<section id="bio" bind:this={element} class="py-40 px-4 md:px-8 my-0">
   {#key visible}
     <div
-      class="container"
-      class:visible
+      class="opacity-0 max-w-3xl mx-auto"
+      class:opacity-100={visible}
       in:fly={{ y: "20%", duration: 1000, delay: 200 }}
     >
       <h2>
@@ -79,61 +79,22 @@
         </p>
       {/if}
 
-      <div class="link-group">
-        <a href="https://www.linkedin.com/in/stian-stordal-51222b15b/">
-          <i class="devicon-linkedin-plain" />
+      <div class="mt-8 flex gap-8">
+        <a
+          href="https://www.linkedin.com/in/stian-stordal-51222b15b/"
+          class="text-2xl no-underline flex items-center gap-2 transition-all duration-200 ease-in-out"
+        >
+          <i class="devicon-linkedin-plain text-[1.75em]" />
           LinkedIn
         </a>
-        <a href="https://github.com/StianSto">
-          <i class="devicon-github-plain" />
+        <a
+          href="https://github.com/StianSto"
+          class="text-2xl no-underline flex items-center gap-2 transition-all duration-200 ease-in-out"
+        >
+          <i class="devicon-github-plain text-[1.75em]" />
           GitHub
         </a>
       </div>
     </div>
   {/key}
 </section>
-
-<style>
-  #bio {
-    margin: 0;
-    padding-block: 12em;
-  }
-  .container {
-    max-width: 800px;
-    opacity: 0;
-  }
-
-  .visible {
-    opacity: 1;
-  }
-
-  p {
-    font-size: clamp(16px, calc(0.75vw + 0.5em), 20px);
-    margin-block: 0.75em;
-  }
-
-  .link-group {
-    margin-top: 2rem;
-    display: flex;
-    gap: 2rem;
-  }
-
-  a {
-    font-size: var(--fs-subtitle);
-    color: var(--secondary);
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    gap: 0.5em;
-    transition: all 200ms ease;
-
-    & i {
-      font-size: 1.5em;
-    }
-
-    &:hover,
-    &:focus-visible {
-      scale: 1.05;
-    }
-  }
-</style>

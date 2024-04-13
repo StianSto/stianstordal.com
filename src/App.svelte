@@ -2,7 +2,6 @@
   import Button from "./lib/components/Button.svelte";
   import ToggleSwitch from "./lib/components/ToggleSwitch.svelte";
   import Hero from "./sections/Hero.svelte";
-  import sectionDividerHero from "./assets/section-divider-hero.svg";
   import Projects from "./sections/Projects.svelte";
   import Skillset from "./sections/Skillset.svelte";
   import Bio from "./sections/Bio.svelte";
@@ -22,28 +21,42 @@
   }
 
   let header;
+  let showHeader = true;
   let headerOnTop = true;
-  let prevScrollpos = window.pageYOffset;
-  window.onscroll = function () {
-    let currentScrollPos = window.pageYOffset;
-    console.log(currentScrollPos);
+  let prevScrollpos = window.scrollY;
+  window.addEventListener("scroll", (event) => {
+    let currentScrollPos = window.scrollY;
     if (prevScrollpos > currentScrollPos) {
-      header.style.top = "0";
+      showHeader = true;
     } else if (currentScrollPos > 200) {
-      header.style.top = "-100px";
+      showHeader = false;
       headerOnTop = false;
     } else if (currentScrollPos < 200) {
       headerOnTop = true;
     }
     prevScrollpos = currentScrollPos;
-  };
+  });
+  window.addEventListener(
+    "scrollend",
+    () => (headerOnTop = window.scrollY < 150)
+  );
 </script>
 
 <BackgroundBlob />
 
-<header bind:this={header} class:headerOnTop>
-  <div class="container">
-    <button id="langToggleBtn" on:click={toggleLang} on:keydown={toggleLang}>
+<header
+  bind:this={header}
+  class:-translate-y-full={!showHeader}
+  class="fixed top-0 py-4 w-full z-50 bg-[var(--background)]"
+  class:headerOnTop
+>
+  <div class="flex items-center gap-4 max-w-[1400px] mx-auto px-6">
+    <button
+      id="langToggleBtn"
+      class="bg-none cursor-pointer"
+      on:click={toggleLang}
+      on:keydown={toggleLang}
+    >
       <img
         src={currentLang === "no" ? flagNO : flagUK}
         width="30px"
@@ -52,32 +65,35 @@
           currentLang === "no" ? "Norway" : "United Kingdom"
         }`}
       />
-      <span
-        class="clr"
+      <p
+        class="text-[14px] m-0 font-medium leading-3"
         aria-label={currentLang === "no" ? "norwegian" : "english"}
-        >{currentLang === "no" ? "NO" : "EN"}</span
       >
+        {currentLang === "no" ? "NO" : "EN"}
+      </p>
     </button>
     <ToggleSwitch size="0.5rem" />
 
-    <nav id="fullNav">
-      <ul>
+    <nav id="fullNav" class="flex-1 hidden min-[1200px]:block">
+      <ul class="list-none flex gap-4 justify-center">
         <li>
-          <a href="#myProjects"
+          <a href="#myProjects" class="no-underline text-[var(--clr)]"
             >{currentLang === "en" ? "Projects" : "Prosjekter"}</a
           >
         </li>
         <li>
-          <a href="#skillset"
+          <a href="#skillset" class="no-underline text-[var(--clr)]"
             >{currentLang === "en" ? "Skillset" : "Kompetanse"}</a
           >
         </li>
         <li>
-          <a href="#bio">{currentLang === "en" ? "About Me" : "Om Meg"}</a>
+          <a href="#bio" class="no-underline text-[var(--clr)]"
+            >{currentLang === "en" ? "About Me" : "Om Meg"}</a
+          >
         </li>
       </ul>
     </nav>
-    <div class="btn-display">
+    <div class="hidden lg:block">
       <Button on:click={() => (window.location.href = "#contact")}>
         {#if currentLang === "en"}
           Get in touch
@@ -90,7 +106,7 @@
   </div>
 </header>
 
-<main>
+<main class="mx-auto">
   <Hero />
   <HeroDivider />
   <Projects />
@@ -103,60 +119,11 @@
   .headerOnTop {
     background: transparent;
   }
-  header {
-    position: fixed;
 
+  header {
     font-size: var(--fs-p);
-    padding: 1rem 0;
     transition:
       all 200ms ease-in-out,
       background 200ms ease;
-    width: 100%;
-    background-color: var(--background);
-    z-index: 1000;
-
-    @media screen and (max-width: 1199px) {
-      position: absolute;
-
-      & .btn-display {
-        display: none;
-      }
-    }
-
-    & .container {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      max-width: 1400px;
-      margin-inline: auto;
-    }
-  }
-
-  #fullNav {
-    flex: 1;
-    & ul {
-      list-style: none;
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
-      & a {
-        color: var(--clr);
-        text-decoration: none;
-      }
-    }
-    @media screen and (max-width: 1199px) {
-      display: none;
-    }
-  }
-
-  #langToggleBtn {
-    border: none;
-    background: none;
-    cursor: pointer;
-    padding: 0;
-  }
-
-  main {
-    margin-inline: auto;
   }
 </style>
