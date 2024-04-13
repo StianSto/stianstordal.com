@@ -37,8 +37,9 @@
   #blobContainer {
     z-index: -1;
     position: fixed;
-    width: 70vw;
-    height: 70vw;
+    height: 80vh;
+    min-height: 30vw;
+    aspect-ratio: 1;
 
     min-width: 200px;
     min-height: 200px;
@@ -67,6 +68,7 @@
 
     z-index: -1;
     translate: -50% -50%;
+    transform: translate3d(0, 0, 0);
   }
 
   @keyframes animateBlob {
@@ -92,8 +94,9 @@
   #blurBlob {
     width: 100vw;
     height: 100vh;
-    backdrop-filter: blur(80px);
+    backdrop-filter: blur(90px);
     position: fixed;
     z-index: -1;
+    transform: translate3d(0, 0, 0);
   }
 </style>
