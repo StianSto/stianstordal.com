@@ -1,7 +1,4 @@
 <script>
-  import { fly } from "svelte/transition";
-  import Button from "../lib/components/Button.svelte";
-  import InputFloating from "../lib/components/InputFloating.svelte";
   import Snackbar from "../lib/components/Snackbar.svelte";
   import { lang } from "../lib/stores";
   import emailjs from "@emailjs/browser";
@@ -38,7 +35,6 @@
         telCopied = false;
         break;
     }
-    console.log(value);
     setTimeout(() => {
       emailCopied = false;
       telCopied = false;
@@ -46,65 +42,41 @@
   }
 </script>
 
-<div id="divider-contact-top"></div>
-<section id="contact">
-  <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920.484 156.83">
-    <path
-      id="Path_97"
-      data-name="Path 97"
-      d="M6,4003.829H1926.484v147.947C1076.921,4179.408,709.212,4143.032,6,4036.208Z"
-      transform="translate(-6 -4003.829)"
-      fill="var(--background)"
-      style="transition: fill 200ms ease"
-    />
-  </svg> -->
-
-  <div class="container">
-    <h2>
+<div
+  id="divider-contact-top"
+  class="w-full min-h-20 m-0 -mb-1 aspect-[8/1]"
+></div>
+<section id="contact" class="m-0 text-slate-100 px-4">
+  <div class="max-w-3xl mx-auto pt-12 pb-20 w-full">
+    <h2 class="font-medium mb-4">
       {#if currentLang === "en"}
         Get in Touch
       {:else}
         Ta Kontakt
       {/if}
     </h2>
-    <div class="flex">
-      <div class="contact-info">
-        <div>
-          <i class="fa fa-solid fa-envelope" />
-          <p on:click={() => copyToClipboard(email)}>{email}</p>
-          {#if emailCopied}
-            <button in:fly={{ x: 10, duration: 600 }}>
-              <i class="fa fa-solid fa-thumbs-up" /><span>copied</span>
-            </button>
-          {:else}
-            <button
-              on:click={() => copyToClipboard(email)}
-              aria-label="copy phone number"
-            >
-              <i class="fa fa-solid fa-copy" />
-            </button>
-          {/if}
-        </div>
-        <div>
-          <i class="fa fa-solid fa-phone-alt" />
-          <p on:click={() => copyToClipboard(tel)}>{tel}</p>
-
-          {#if telCopied}
-            <button in:fly={{ x: 10, duration: 600 }}>
-              <i class="fa fa-solid fa-thumbs-up" /><span>copied</span>
-            </button>
-          {:else}
-            <button
-              on:click={() => copyToClipboard(tel)}
-              aria-label="copy phone number"
-            >
-              <i class="fa fa-solid fa-copy" />
-            </button>
-          {/if}
-        </div>
+    <div>
+      <div class="flex items-center gap-4">
+        <i class="fa fa-solid fa-envelope text-4xl" />
+        <p
+          on:click={() => copyToClipboard(email)}
+          on:keydown={() => copyToClipboard(email)}
+          class="hover:cursor-pointer text-slate-100"
+        >
+          {emailCopied ? "Copied Email" : email}
+        </p>
+      </div>
+      <div class="flex items-center gap-4">
+        <i class="fa fa-solid fa-phone-alt text-4xl" />
+        <p
+          on:click={() => copyToClipboard(tel)}
+          on:keydown={() => copyToClipboard(tel)}
+          class="hover:cursor-pointer text-slate-100"
+        >
+          {telCopied ? "Copied Number" : tel}
+        </p>
       </div>
     </div>
-    <div></div>
   </div>
 </section>
 <svg class="svg" style="position: absolute;" width="0" height="0">
@@ -133,86 +105,13 @@
 {/each}
 
 <style>
-  section {
+  #contact {
     background-color: var(--charcoal);
-    color: var(--milkywhite);
-    margin: 0;
   }
 
   #divider-contact-top {
-    width: 100%;
-    aspect-ratio: 8/1;
-    min-height: 70px;
     rotate: y 180deg;
     background: var(--charcoal);
     clip-path: url("#divider-top-clip");
-    margin-bottom: -2px;
-  }
-  .container {
-    padding-block: 4rem 10rem;
-    max-width: 800px;
-  }
-
-  h2 {
-    font-weight: 500;
-    margin-bottom: 2rem;
-  }
-
-  .flex {
-    display: flex;
-    flex-wrap: wrap-reverse;
-    gap: 5vw;
-
-    & > * {
-      min-width: min(300px, 100%);
-    }
-  }
-
-  .contact-info {
-    & p:hover {
-      cursor: pointer;
-    }
-    & > * {
-      display: flex;
-      align-items: center;
-      font-size: clamp(0.75rem, 1vw + 1rem, 1.5rem);
-      gap: 1em;
-      margin-bottom: 1rem;
-
-      & i {
-        font-size: 1.5em;
-      }
-    }
-
-    & button {
-      background: none;
-      border: none;
-      color: rgba(200, 200, 200);
-      display: flex;
-      align-items: center;
-      flex-wrap: nowrap;
-      gap: 4px;
-
-      animation: fadeIn 200ms ease-out forwards;
-
-      &:hover {
-        cursor: pointer;
-      }
-
-      & .fa-thumbs-up {
-        color: var(--primary);
-      }
-    }
-  }
-
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      translate: -10%;
-    }
-    to {
-      opacity: 1;
-      translate: 0;
-    }
   }
 </style>

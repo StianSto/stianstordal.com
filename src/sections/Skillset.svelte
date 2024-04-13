@@ -27,12 +27,15 @@
   });
 </script>
 
-<div id="divider-top" class="bg-gradient"></div>
+<div
+  id="divider-top"
+  class="bg-gradient -mb-1 w-full min-h-16 aspect-[7/1]"
+></div>
 
-<section id="skillset" class="bg-gradient">
-  <div class="container" bind:this={element}>
+<section id="skillset" class="bg-gradient text-white px-8">
+  <div class="py-12 mx-auto max-w-screen-lg" bind:this={element}>
     {#key visible}
-      <h2>
+      <h2 class="font-medium mb-12">
         {#if currentLang === "en"}
           My Skillset
         {:else}
@@ -40,8 +43,14 @@
         {/if}
       </h2>
       <div>
-        <div class="skills-frontend skills-container">
-          <h3 in:fade class:visible>FrontEnd</h3>
+        <div class="skills-container">
+          <h3
+            in:fade
+            class="font-normal mb-2 opacity-0"
+            class:opacity-100={visible}
+          >
+            FrontEnd
+          </h3>
           <ul>
             <li in:fly={{ x: "100%", duration: 500, delay: 50 }} class:visible>
               <i class="devicon-html5-plain" />
@@ -80,12 +89,10 @@
               <i class="devicon-svelte-plain" />
               <span>Svelte</span>
             </li>
-            <li
-              in:fly={{ x: "100%", duration: 500, delay: 500 }}
-              class:visible
-              class="no-icon"
-            >
-              <img class="cypress" src={cypressLogo} alt="cypress logo" />
+            <li in:fly={{ x: "100%", duration: 500, delay: 500 }} class:visible>
+              <i class="devicon-cypressio-plain"></i>
+
+              <!-- <img class="cypress" src={cypressLogo} alt="cypress logo" /> -->
               <span>Cypress</span>
             </li>
             <li in:fly={{ x: "100%", duration: 500, delay: 550 }} class:visible>
@@ -94,7 +101,7 @@
             </li>
           </ul>
         </div>
-        <div class="skills-backend skills-container">
+        <div class="skills-container">
           <h3 in:fade={{ delay: 500 }} class:visible>BackEnd</h3>
           <ul>
             <li in:fly={{ x: "100%", duration: 500, delay: 600 }} class:visible>
@@ -106,13 +113,12 @@
               <span>MongoDB</span>
             </li>
             <li in:fly={{ x: "100%", duration: 500, delay: 700 }} class:visible>
-              <!-- <i class="devicon-nextjs-original-wordmark white"></i> -->
               <i class="devicon-nextjs-plain"></i>
               <span>Next.JS</span>
             </li>
           </ul>
         </div>
-        <div class="skills-design skills-container">
+        <div class="skills-container">
           <h3 in:fade={{ delay: 600 }} class:visible>Design</h3>
           <ul>
             <li in:fly={{ x: "100%", duration: 500, delay: 750 }} class:visible>
@@ -137,7 +143,10 @@
     {/key}
   </div>
 </section>
-<div id="divider-bottom" class="bg-gradient"></div>
+<div
+  id="divider-bottom"
+  class="bg-gradient -mt-1 w-full min-h-16 aspect-[7/1]"
+></div>
 <svg class="svg" style="position: absolute;" width="0" height="0">
   <clipPath id="divider-top-clip" clipPathUnits="objectBoundingBox"
     ><path
@@ -167,45 +176,10 @@
   }
 
   #divider-top {
-    margin-bottom: -2px;
     clip-path: url("#divider-top-clip");
   }
   #divider-bottom {
-    margin-top: -2px;
     clip-path: url("#divider-bottom-clip");
-  }
-  #divider-bottom,
-  #divider-top {
-    width: 100%;
-    min-height: 70px;
-    aspect-ratio: 7/1;
-  }
-
-  #skillset {
-    min-height: 500px;
-    /* background-color: var(--primary); */
-    /* background: var(--gradient-primary); */
-    color: white;
-    margin: 0;
-  }
-
-  h2 {
-    font-weight: 500;
-    margin-bottom: 3rem;
-  }
-
-  h3 {
-    font-weight: 400;
-    margin-bottom: 0.5em;
-    opacity: 0;
-
-    &.visible {
-      opacity: 1;
-    }
-  }
-
-  .container {
-    padding-block: 4rem;
   }
 
   .skills-container {
@@ -256,15 +230,6 @@
           }
         }
       }
-
-      & .no-icon {
-        & .cypress {
-          width: var(--fs-icons);
-        }
-      }
     }
-  }
-  .bow {
-    translate: 0 6px;
   }
 </style>
