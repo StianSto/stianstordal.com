@@ -1,0 +1,107 @@
+[
+  {
+    "title": "FrontEnd",
+    "skills": [
+      {
+        "skill": "HTML",
+        "iconClass": "devicon-html5-plain",
+        "skillCount": 1
+      },
+      {
+        "skill": "CSS",
+        "iconClass": "devicon-css3-plain",
+        "skillCount": 2
+      },
+      {
+        "skill": "JavaScript",
+        "iconClass": "devicon-javascript-plain",
+        "skillCount": 3
+      },
+      {
+        "skill": "TypeScript",
+        "iconClass": "devicon-typescript-plain",
+        "skillCount": 4
+      },
+      {
+        "skill": "Bootstrap",
+        "iconClass": "devicon-bootstrap-plain",
+        "skillCount": 5
+      },
+      {
+        "skill": "TailwindCSS",
+        "iconClass": "devicon-tailwindcss-plain",
+        "skillCount": 6
+      },
+      {
+        "skill": "Sass",
+        "iconClass": "devicon-sass-plain",
+        "skillCount": 7
+      },
+      {
+        "skill": "React",
+        "iconClass": "devicon-react-plain",
+        "skillCount": 8
+      },
+      {
+        "skill": "Svelte",
+        "iconClass": "devicon-svelte-plain",
+        "skillCount": 9
+      },
+      {
+        "skill": "Cypress",
+        "iconClass": "devicon-cypressio-plain",
+        "skillCount": 10
+      },
+      {
+        "skill": "Jest",
+        "iconClass": "devicon-jest-plain",
+        "skillCount": 11
+      }
+    ]
+  },
+  {
+    "title": "BackEnd",
+    "skills": [
+      {
+        "skill": "Express",
+        "iconClass": "devicon-express-original",
+        "skillCount": 12
+      },
+      {
+        "skill": "MongoDb",
+        "iconClass": "devicon-mongodb-plain",
+        "skillCount": 13
+      },
+      {
+        "skill": "Next.JS",
+        "iconClass": "devicon-nextjs-plain",
+        "skillCount": 14
+      }
+    ]
+  },
+  {
+    "title": "Design",
+    "skills": [
+      {
+        "skill": "Adobe XD",
+        "iconClass": "devicon-xd-plain",
+        "skillCount": 15
+      },
+      {
+        "skill": "Adobe Illustrator",
+        "iconClass": "devicon-illustrator-plain",
+        "skillCount": 16
+      },
+      {
+        "skill": "Adobe Photoshop",
+        "iconClass": "devicon-photoshop-plain",
+        "skillCount": 17
+      },
+      {
+        "skill": "Figma",
+        "iconClass": "devicon-figma-plain",
+        "skillCount": 18
+      }
+    ]
+  }
+]

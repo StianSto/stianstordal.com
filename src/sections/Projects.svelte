@@ -121,11 +121,9 @@
           {#key selectedProject}
             <h3 class="my-4">{projectsJSON[selectedProject].title}</h3>
             <p class="mb-10">
-              {#if currentLang === "en"}
-                {projectsJSON[selectedProject].description.en}
-              {:else}
-                {projectsJSON[selectedProject].description.no}
-              {/if}
+              {#key currentLang}
+                {projectsJSON[selectedProject].description[currentLang]}
+              {/key}
             </p>
             <div class="flex gap-6 items-center">
               <a
@@ -134,13 +132,9 @@
                 target="_blank"
                 rel="noreferrer noopener"
               >
-                <Button theme="secondary"
-                  ><i class="fa fa-solid fa-globe me-2" />
-                  {#if currentLang === "en"}
-                    Go to site
-                  {:else}
-                    Gå til siden
-                  {/if}
+                <Button theme="secondary">
+                  <i class="fa fa-solid fa-globe me-2" />
+                  {currentLang === "en" ? "Go to site" : "Gå til siden"}
                 </Button>
               </a>
 
@@ -151,11 +145,7 @@
                 rel="noreferrer noopener"
               >
                 <i class="fa fa-brands fa-github me-2" />
-                {#if currentLang === "en"}
-                  Project Repo
-                {:else}
-                  Prosjekt Repo
-                {/if}
+                {currentLang === "en" ? "Project Repo" : "Prosjekt Repo"}
               </a>
             </div>
           {/key}

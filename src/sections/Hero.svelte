@@ -8,6 +8,8 @@
   import { onMount } from "svelte";
   import { cascade } from "svelte-typewriter";
 
+  import heroJSON from "../lib/content/hero.json";
+
   let currentLang;
   lang.subscribe((data) => (currentLang = data));
 
@@ -30,37 +32,20 @@
     >
       <div class="flex-[2]" use:cascade={{ interval: 25 }}>
         <h1 class="relative text-transparent font-bold leading-[1.2em]">
-          {#if currentLang === "en"}
-            FrontEnd / Fullstack developer
+          {#key currentLang}
+            {heroJSON.title[currentLang]}
             <span aria-hidden="true" class="absolute inset-0">
-              FrontEnd / Fullstack developer
+              {heroJSON.title[currentLang]}
             </span>
-          {:else}
-            FrontEnd / Fullstack Utvikler
-            <span aria-hidden="true" class="absolute inset-0">
-              FrontEnd / Fullstack Utvikler
-            </span>
-          {/if}
+          {/key}
         </h1>
         <p class="subtitle relative text-transparent mt-6 mb-12 leading-tight">
-          {#if currentLang === "en"}
-            I'm Stian, a FrontEnd developer with a passion for combining
-            creativity and logic. I love being challenged and learning new
-            things!
+          {#key currentLang}
+            {heroJSON.subtitle[currentLang]}
             <span aria-hidden="true" class="absolute inset-0">
-              I'm Stian, a FrontEnd developer with a passion for combining
-              creativity and logic. I love being challenged and learning new
-              things!
+              {heroJSON.subtitle[currentLang]}
             </span>
-          {:else}
-            Jeg er Stian, en FrontEnd utvikler med en lidenskap for å kombinere
-            kreativitet og logikk. Jeg elsker å bli utfordret og lære nye ting!
-            <span aria-hidden="true" class="absolute inset-0">
-              Jeg er Stian, en FrontEnd utvikler med en lidenskap for å
-              kombinere kreativitet og logikk. Jeg elsker å bli utfordret og
-              lære nye ting!
-            </span>
-          {/if}
+          {/key}
         </p>
         <div class="flex items-center gap-8">
           <div in:fly={{ y: "20%", duration: 800, delay: 5000 }}>
