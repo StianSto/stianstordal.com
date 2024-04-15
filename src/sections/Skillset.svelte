@@ -1,7 +1,5 @@
 <script>
   import { fly, fade } from "svelte/transition";
-
-  import cypressLogo from "../assets/cypress-logo.svg";
   import { lang } from "../lib/stores";
   import { onDestroy, onMount } from "svelte";
 
@@ -216,6 +214,7 @@
           text-align: center;
           position: absolute;
           font-size: 1rem;
+          color: var(--cream);
           bottom: 0;
           left: 50%;
           translate: -50% 150%;
