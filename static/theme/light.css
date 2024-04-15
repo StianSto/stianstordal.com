@@ -1,0 +1,14 @@
+:root {
+	--primary: var(--strawberry);
+	--primary-variant: var(--mango);
+	--secondary: var(--deep-blue);
+	--background: var(--milkywhite);
+	--light: var(--cream);
+	--dark: var(--charcoal);
+	--gradient-primary: transparent
+		linear-gradient(136deg, var(--primary) 0%, var(--primary-variant) 100%) 0% 0% no-repeat
+		padding-box;
+
+	--clr: var(--midnight);
+	--clr-inverse: var(--milkywhite);
+}

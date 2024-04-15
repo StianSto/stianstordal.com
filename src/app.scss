@@ -3,114 +3,100 @@
 @tailwind utilities;
 
 :root {
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
+	font-synthesis: none;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-text-size-adjust: 100%;
 
-  --max-width: 1100px;
+	--max-width: 1100px;
 
-  /* colors */
-  /* light theme */
-  --strawberry: #f45f5b;
-  --mango: #f2ae30;
-  --midnight: #14192e;
-  --deep-blue: #222842;
+	/* colors */
+	/* light theme */
+	--strawberry: #f45f5b;
+	--mango: #f2ae30;
+	--midnight: #14192e;
+	--deep-blue: #222842;
 
-  --milkywhite: #fefcff;
-  --cream: #f5e8e1;
-  --charcoal: #392f2f;
+	--milkywhite: #fefcff;
+	--cream: #f5e8e1;
+	--charcoal: #392f2f;
 
-  /* Colors: */
-  --primary: var(--strawberry);
-  --primary-variant: var(--mango);
-  --secondary: var(--deep-blue);
-  --background: var(--milkywhite);
-  --light: var(--cream);
-  --dark: var(--charcoal);
-  --gradient-primary: transparent
-    linear-gradient(136deg, var(--primary) 0%, var(--primary-variant) 100%) 0%
-    0% no-repeat padding-box;
+	/* typography */
+	--font-family: Quicksand;
 
-  /* typography */
-  --font-family: Quicksand;
-
-  --fs-h1: clamp(38px, 7vw + 1rem, 54px);
-  --fs-h2: clamp(32px, 4vw + 1rem, 48px);
-  --fs-subtitle: clamp(24px, 3vw + 0.5rem, 28px);
-  --fs-p: 18px;
-  --fs-p-bigger: 24px;
-  --fs-p-smaller: 14px;
-  --fs-button: 20px;
-  --fs-button-bigger: 24px;
-  --fs-icons: clamp(64px, 4.5vw + 2rem, 74px);
-
-  --clr: var(--midnight);
-  --clr-inverse: var(--milkywhite);
+	--fs-h1: clamp(38px, 7vw + 1rem, 54px);
+	--fs-h2: clamp(32px, 4vw + 1rem, 48px);
+	--fs-subtitle: clamp(24px, 3vw + 0.5rem, 28px);
+	--fs-p: 18px;
+	--fs-p-bigger: 24px;
+	--fs-p-smaller: 14px;
+	--fs-button: 20px;
+	--fs-button-bigger: 24px;
+	--fs-icons: clamp(64px, 4.5vw + 2rem, 74px);
 }
 
 /* global settings */
 html {
-  font-family: var(--font-family);
-  scroll-behavior: smooth;
+	font-family: var(--font-family);
+	scroll-behavior: smooth;
 }
 
 * {
-  margin: 0;
-  box-sizing: border-box;
+	margin: 0;
+	box-sizing: border-box;
 }
 
 body {
-  background: var(--background);
-  transition: background 200ms ease;
-  color: var(--clr);
+	background: var(--background);
+	transition: background 200ms ease;
+	color: var(--clr);
 
-  &.dark {
-    /* Colors: */
-    --primary: aquamarine;
-    --primary-variant: rgb(162, 0, 255);
-    --secondary: var(--cream);
-    --background: var(--midnight);
-    --light: var(--milkywhite);
-    --dark: var(--charcoal);
-    --gradient-primary: transparent
-      linear-gradient(136deg, var(--primary) 0%, var(--primary-variant) 100%) 0%
-      0% no-repeat padding-box;
+	&.dark {
+		/* Colors: */
+		--primary: aquamarine;
+		--primary-variant: rgb(162, 0, 255);
+		--secondary: var(--cream);
+		--background: var(--midnight);
+		--light: var(--milkywhite);
+		--dark: var(--charcoal);
+		--gradient-primary: transparent
+			linear-gradient(136deg, var(--primary) 0%, var(--primary-variant) 100%) 0% 0% no-repeat
+			padding-box;
 
-    --clr: var(--cream);
-    --clr-inverse: var(--midnight);
-  }
+		--clr: var(--cream);
+		--clr-inverse: var(--midnight);
+	}
 }
 
 h1 {
-  font-size: var(--fs-h1);
+	font-size: var(--fs-h1);
 }
 
 h2 {
-  font-size: var(--fs-h2);
-  font-weight: 300;
+	font-size: var(--fs-h2);
+	font-weight: 300;
 }
 
 h3,
 .subtitle {
-  font-size: var(--fs-subtitle);
+	font-size: var(--fs-subtitle);
 }
 
 p {
-  font-size: clamp(16px, calc(0.75vw + 0.5em), 20px);
-  margin-block: 0.5em;
-  color: var(--clr);
+	font-size: clamp(16px, calc(0.75vw + 0.5em), 20px);
+	margin-block: 0.5em;
+	color: var(--clr);
 }
 
 span {
-  color: var(--clr);
+	color: var(--clr);
 }
 
 img {
-  display: block;
+	display: block;
 }
 
 .clrInverse {
-  color: var(--clr-inverse);
+	color: var(--clr-inverse);
 }

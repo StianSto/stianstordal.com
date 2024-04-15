@@ -1,0 +1,15 @@
+:root {
+	--primary: aquamarine;
+	--primary-variant: rgb(162, 0, 255);
+	--secondary: var(--cream);
+	--background: var(--midnight);
+	--light: var(--milkywhite);
+	--dark: var(--charcoal);
+	--gradient-primary: transparent
+		linear-gradient(136deg, var(--primary) 0%, var(--primary-variant) 100%) 0% 0% no-repeat
+		padding-box;
+
+	--clr: var(--light);
+	/* --clr: var(--cream); */
+	--clr-inverse: var(--midnight);
+}
