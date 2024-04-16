@@ -23,8 +23,6 @@
 	onDestroy(() => {
 		if (browser) window.removeEventListener('scroll', handleScroll);
 	});
-
-	$: console.log(visible);
 </script>
 
 <div id="divider-top" class="bg-gradient -mb-1 w-full min-h-16 aspect-[7/1]"></div>
