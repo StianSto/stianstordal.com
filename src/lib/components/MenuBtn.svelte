@@ -33,6 +33,7 @@
     -webkit-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    margin-inline: auto;
 
     & .top {
       stroke-dasharray: 60 160;
@@ -45,7 +46,9 @@
     & .bottom {
       stroke-dasharray: 60 90;
       transform-origin: 50%;
-      transition: transform 400ms, stroke-dashoffset 400ms;
+      transition:
+        transform 400ms,
+        stroke-dashoffset 400ms;
     }
 
     &.active {
@@ -67,7 +70,9 @@
 
   .line {
     fill: none;
-    transition: stroke-dasharray 400ms, stroke-dashoffset 400ms;
+    transition:
+      stroke-dasharray 400ms,
+      stroke-dashoffset 400ms;
     stroke: #000;
     stroke-width: 5;
     stroke-linecap: round;

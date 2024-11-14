@@ -42,7 +42,11 @@
 </script>
 
 <!-- output -->
-<section class="overflow-hidden px-4 md:px-8 my-24" bind:this={element}>
+<section
+  class="overflow-hidden px-4 md:px-8 my-24"
+  bind:this={element}
+  id="myProjects"
+>
   <div class="max-w-screen-lg mx-auto">
     <h2>
       {#if currentLang === "en"}
