@@ -11,7 +11,7 @@
   import { lang, theme } from "./lib/stores";
   import HeroDivider from "./lib/components/dividers/HeroDivider.svelte";
   import Nav from "./lib/components/Nav.svelte";
-  import BackgroundBlob from "./lib/components/BackgroundBlob.svelte";
+  // import BackgroundBlob from "./lib/components/BackgroundBlob.svelte";
 
   let currentLang;
   lang.subscribe((data) => (currentLang = data));
@@ -42,7 +42,7 @@
   );
 </script>
 
-<BackgroundBlob />
+<!-- <BackgroundBlob /> -->
 
 <header
   bind:this={header}
