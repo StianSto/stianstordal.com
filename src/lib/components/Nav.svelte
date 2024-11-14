@@ -105,8 +105,8 @@
     background: var(--milkywhite);
     border-radius: 50%;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-    width: var(--btn-width);
-    height: var(--btn-width);
+    width: 2.5rem;
+    aspect-ratio: 1;
     z-index: 2;
     transition: all 200ms ease;
 
@@ -123,8 +123,8 @@
     aspect-ratio: 1;
     border-radius: 50%;
     position: absolute;
-    top: var(--btn-margin);
-    right: var(--btn-margin);
+    top: 0;
+    right: 0;
     translate: calc((var(--btn-width) * -0.5) + (var(--navBgWidth) * 0.5))
       calc((var(--btn-width) * 0.5) + (var(--navBgWidth) * -0.5));
     z-index: -1;
