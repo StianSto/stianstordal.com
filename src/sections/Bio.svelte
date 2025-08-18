@@ -13,10 +13,15 @@
   let today = new Date();
   let birthday = new Date("1995-06-23");
   let age = today.getFullYear() - birthday.getFullYear();
+
   (() => {
-    if (today.getMonth() > birthday.getMonth()) return;
-    if (today.getDate() > birthday.getDate()) return;
-    age--;
+    let checkMonth = today.getMonth() - birthday.getMonth();
+    if (checkMonth > 0) return;
+    if (checkMonth < 0) {
+      age--;
+      return;
+    }
+    if (today.getDate() < birthday.getDate()) age--;
   })();
 
   function handleScroll() {
