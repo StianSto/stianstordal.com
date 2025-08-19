@@ -9,6 +9,16 @@
   let element;
   let visible = false;
 
+  //calculate age
+  let today = new Date();
+  let birthday = new Date("1995-06-23");
+  let age = today.getFullYear() - birthday.getFullYear();
+  (() => {
+    if (today.getMonth() > birthday.getMonth()) return;
+    if (today.getDate() > birthday.getDate()) return;
+    age--;
+  })();
+
   function handleScroll() {
     const bounding = element.getBoundingClientRect();
 
@@ -43,8 +53,8 @@
         <p>
           Hi! My name is Stian. I am a Front-End / aspiring Full-stack
           developer, with a passion for combining creativity and logic. I am a
-          Norwegian 28-year old, and I speak scandinavian languages and english
-          fluently.
+          Norwegian {age}-year old man, and I speak scandinavian languages and
+          english fluently.
         </p>
         <p>
           I value teamwork and discipline above all else and I like to work with
@@ -62,8 +72,8 @@
         <p>
           Hei! Mitt navn er Stian. Jeg er en front-end / aspirerende
           fullstack-utvikler, med en lidenskap for å kombinere kreativitet og
-          logikk. Jeg er 28 år gammel nordmann, og jeg snakker skandinaviske
-          språk og engelsk flytende.
+          logikk. Jeg er {age} år gammel nordmann, og jeg snakker skandinaviske språk
+          og engelsk flytende.
         </p>
         <p>
           Jeg verdsetter teamarbeid og disiplin fremfor alt annet og liker å
